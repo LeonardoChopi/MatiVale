@@ -9,7 +9,7 @@ const productos = [
         nombre: "Camión amarillo plástico caja",
         precio: "370",
         codigo: "2024080700047",
-        imagen: ""
+        imagen: "https://office2000.com.uy/cache/office%202000/productos/1/99484_02-550x550.webp"
     },
     {
         nombre: "Minicompresor 12v",
