@@ -35,6 +35,36 @@
     height: 80px;
 }
 
+.buscador {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.buscador input {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 14px;
+    min-width: 250px;
+}
+
+.scan-btn {
+    padding: 8px 16px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.scan-btn:hover {
+    background: #1ebf59;
+}
+
 /* Cards */
 .productos {
     display: grid;
@@ -93,6 +123,46 @@
 
 .btn-contacto:hover {
     background: #1ebf59;
+}
+
+/* Scanner */
+#scanner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+#scanner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#scanner canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#scanner::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border: 3px solid #25D366;
+    border-radius: 10px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
 }
 
 /* Carrusel */
