@@ -22,6 +22,20 @@
     transition: transform 0.2s;
 }
 
+.navbar .contactos button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .contactos button img {
+    width: 35px;
+    height: 35px;
+}
+
 .navbar .contactos a {
     margin-left: 50px; /* separa los iconos */
 }
@@ -80,6 +94,7 @@
     padding: 15px;
     text-align: center;
     transition: transform 0.2s;
+    max-width: 500px;
 }
 
 .card:hover {
@@ -87,8 +102,10 @@
 }
 
 .card img {
-    max-width: 100%;
+    max-width: 250px;
+    max-height: 250px;
     border-radius: 10px;
+    object-fit: contain;
 }
 
 .card h3 {
@@ -123,6 +140,26 @@
 
 .btn-contacto:hover {
     background: #1ebf59;
+}
+
+.btn-agregar-carrito {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 8px 12px;
+    background: #1abc9c;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-agregar-carrito:hover {
+    background: #16a085;
 }
 
 /* Scanner */
@@ -205,4 +242,205 @@
 
 .carousel .next {
     right: 10px;
+}
+
+/* Carrito Modal */
+.carrito-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.carrito-content {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background: #f8f8f8;
+}
+
+.carrito-header h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #555;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.carrito-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.carrito-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#carritoVacio {
+    text-align: center;
+    color: #999;
+    padding: 40px 20px;
+}
+
+/* Carrito Items */
+.item-carrito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.item-codigo {
+    margin: 3px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.item-precio {
+    margin: 3px 0;
+    font-size: 12px;
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+.item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-cantidad {
+    background: #ddd;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-cantidad:hover {
+    background: #bbb;
+}
+
+.item-subtotal {
+    min-width: 60px;
+    text-align: right;
+    font-weight: bold;
+    color: #1abc9c;
+}
+
+.btn-eliminar {
+    background: #ff6b6b;
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-eliminar:hover {
+    background: #ee5a52;
+}
+
+.carrito-total {
+    padding: 15px;
+    border-top: 2px solid #ddd;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.carrito-total h3 {
+    margin: 0;
+    color: #1abc9c;
+    font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    
+    .carrito-content {
+        max-width: 90%;
+    }
+
+    .navbar{
+        display: block;
+        padding: 20px;
+    }
+
+    .buscador{
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .contactos{
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 10px;
+
+    }
 }

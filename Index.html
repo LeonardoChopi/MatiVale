@@ -19,6 +19,7 @@
         <div class="contactos">
             <a href="https://wa.me/+59892882637" target="_blank" class="whatsapp"><img src="img/Pagina/whatsapp.svg" alt="Contacto whatsapp"></a>
             <a href="https://www.facebook.com/mirtha.pacilio/?locale=ms_MY" target="_blank" class="facebook"><img src="img/Pagina/facebook.svg" alt="Contacto facebook"></a>
+            <button id="carritoBtn"><img src="img/Pagina/Carrito.svg" alt="Carrito"></button>
         </div>
     </nav>
 
@@ -30,9 +31,27 @@
     <!-- CONTENEDOR SCANNER -->
     <div id="scanner" class="scanner"></div>
 
+    <!-- VENTANA FLOTANTE DEL CARRITO -->
+    <div id="carritoModal" class="carrito-modal">
+        <div class="carrito-content">
+            <div class="carrito-header">
+                <h2>Mi Carrito</h2>
+                <button id="cerrarCarrito" class="close-btn">✕</button>
+            </div>
+            <div class="carrito-body">
+                <p id="carritoVacio">El carrito está vacío</p>
+                <div id="carritoItems" class="carrito-items"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- LIBRERÍA QUAGGA -->
     <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
 
     <!-- SCRIPTS EXTERNOS -->
+    <script src="productos.js"></script>
     <script src="script.js"></script>
     <script src="scan.js"></script>
+    <script src="carrito.js"></script>
+</body>
+</html>

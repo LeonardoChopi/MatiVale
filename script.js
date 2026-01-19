@@ -1,24 +1,7 @@
 const numero = "+59892882637";
 const inputBuscador = document.getElementById("inputBuscador");
 
-const productos = [
-    {
-        nombre: "Botella 1L jabón para burbujeros",
-        precio: "$170",
-        codigo: "2025021300548"
-    },
-    {
-        nombre: "Camión amarillo plástico caja",
-        precio: "$370",
-        codigo: "2024080700047"
-    },
-    {
-        nombre: "Minicompresor 12v",
-        precio: "$990",
-        codigo: "7737440348944"
-    }
-];
-
+// Los productos se importan desde productos.js
 
 const contenedor = document.getElementById("productos");
 
@@ -38,8 +21,9 @@ productos.forEach(prod => {
             </div>
             <div class="card-content">
                 <h3>${prod.nombre}</h3>
-                <span class="precio">${prod.precio}</span> 
+                <span class="precio">$${prod.precio}</span> 
                 <br>
+                <button class="btn-agregar-carrito">Añadir al Carrito</button>
                 <a href="#" class="btn-contacto">Consultar por WhatsApp</a>
             </div>
         `;
@@ -64,8 +48,9 @@ productos.forEach(prod => {
             <img src="${prod.imagen}" alt="${prod.nombre}">
             <div class="card-content">
                 <h3>${prod.nombre}</h3>
-                <span class="precio">${prod.precio}</span>
+                <span class="precio">$${prod.precio}</span>
                 <br>
+                <button class="btn-agregar-carrito">Añadir al Carrito</button>
                 <a href="#" class="btn-contacto">Consultar por WhatsApp</a>
             </div>
         `;
@@ -79,23 +64,33 @@ productos.forEach(prod => {
         window.open(url, "_blank");
     });
 
+    // Botón Añadir al Carrito
+    const btnAgregar = card.querySelector(".btn-agregar-carrito");
+    if (btnAgregar) {
+        btnAgregar.addEventListener("click", function(e) {
+            e.preventDefault();
+            agregarAlCarrito(prod);
+        });
+    }
+
     contenedor.appendChild(card);
 });
 
-// Función de filtrado por código
+// Función de filtrado por código o nombre
 if (inputBuscador) {
     inputBuscador.addEventListener("input", function(e) {
-        const codigoBuscado = e.target.value.toLowerCase().trim();
+        const busqueda = e.target.value.toLowerCase().trim();
         const cards = document.querySelectorAll(".card");
         
         cards.forEach((card, index) => {
             const codigoProducto = productos[index].codigo.toLowerCase();
+            const nombreProducto = productos[index].nombre.toLowerCase();
             
-            if (codigoBuscado === "") {
+            if (busqueda === "") {
                 // Si está vacío, mostrar todos
                 card.style.display = "";
-            } else if (codigoProducto.includes(codigoBuscado)) {
-                // Si coincide el código, mostrar
+            } else if (codigoProducto.includes(busqueda) || nombreProducto.includes(busqueda)) {
+                // Si coincide el código O el nombre, mostrar
                 card.style.display = "";
             } else {
                 // Si no coincide, ocultar
