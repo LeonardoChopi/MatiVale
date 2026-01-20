@@ -1,6 +1,10 @@
 /* ========================================
-   RESETEO BÁSICO Y CONFIGURACIÓN GENERAL
+   01 - RESETEO BÁSICO Y CONFIGURACIÓN
    ======================================== */
+
+* a {
+    text-decoration: none;
+}
 
 * {
     margin: 0;
@@ -14,7 +18,7 @@ body {
 }
 
 /* ========================================
-   NAVBAR - BARRA DE NAVEGACIÓN
+   02 - NAVBAR (BARRA DE NAVEGACIÓN)
    ======================================== */
 
 .navbar {
@@ -30,7 +34,7 @@ body {
 }
 
 /* ========================================
-   BUSCADOR
+   03 - BUSCADOR
    ======================================== */
 
 .buscador {
@@ -48,7 +52,7 @@ body {
 }
 
 /* ========================================
-   BOTONES PRINCIPALES
+   04 - BOTÓN ESCANEAR
    ======================================== */
 
 .scan-btn {
@@ -68,7 +72,7 @@ body {
 }
 
 /* ========================================
-   CONTACTOS - ICONOS EN LA NAVBAR
+   05 - CONTACTOS (ICONOS EN NAVBAR)
    ======================================== */
 
 .navbar .contactos {
@@ -106,7 +110,7 @@ body {
 }
 
 /* ========================================
-   TARJETAS DE PRODUCTOS
+   06 - GRID DE PRODUCTOS
    ======================================== */
 
 .productos {
@@ -115,6 +119,10 @@ body {
     gap: 20px;
     padding: 30px;
 }
+
+/* ========================================
+   07 - TARJETAS DE PRODUCTOS
+   ======================================== */
 
 .card {
     background: white;
@@ -155,25 +163,52 @@ body {
 }
 
 /* ========================================
-   BOTONES DE ACCIÓN EN TARJETAS
+   08 - CARRUSEL DE IMÁGENES
    ======================================== */
 
-.btn-contacto {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: #34495E;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.2s;
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
 }
 
-.btn-contacto:hover {
-    background: #1ebf59;
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
 }
+
+.carousel-img.active {
+    display: block;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.carousel .prev {
+    left: 10px;
+}
+
+.carousel .next {
+    right: 10px;
+}
+
+/* ========================================
+   09 - BOTONES DE ACCIONES EN TARJETAS
+   ======================================== */
 
 .btn-agregar-carrito {
     display: inline-block;
@@ -195,8 +230,25 @@ body {
     background: #16a085;
 }
 
+.btn-contacto {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #34495E;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-contacto:hover {
+    background: #1ebf59;
+}
+
 /* ========================================
-   SCANNER DE CÓDIGOS DE BARRAS
+   10 - SCANNER DE CÓDIGOS DE BARRAS
    ======================================== */
 
 #scanner {
@@ -225,7 +277,6 @@ body {
     display: none;
 }
 
-/* Guía visual del scanner - marco verde */
 #scanner::after {
     content: "";
     position: absolute;
@@ -240,52 +291,7 @@ body {
 }
 
 /* ========================================
-   CARRUSEL DE IMÁGENES
-   ======================================== */
-
-.carousel {
-    position: relative;
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
-    border-radius: 10px 10px 0 0;
-}
-
-.carousel-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-}
-
-.carousel-img.active {
-    display: block;
-}
-
-/* Botones de navegación del carrusel */
-.carousel button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    border: none;
-    color: #fff;
-    font-size: 22px;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.carousel .prev {
-    left: 10px;
-}
-
-.carousel .next {
-    right: 10px;
-}
-
-/* ========================================
-   VENTANA FLOTANTE DEL CARRITO
+   11 - VENTANA MODAL DEL CARRITO
    ======================================== */
 
 .carrito-modal {
@@ -313,7 +319,6 @@ body {
     animation: slideIn 0.3s ease-out;
 }
 
-/* Animación de deslizamiento del carrito */
 @keyframes slideIn {
     from {
         transform: translateX(100%);
@@ -374,7 +379,7 @@ body {
 }
 
 /* ========================================
-   ITEMS DEL CARRITO
+   12 - ITEMS DEL CARRITO
    ======================================== */
 
 .item-carrito {
@@ -411,7 +416,6 @@ body {
     font-weight: bold;
 }
 
-/* Controles de cantidad */
 .item-cantidad {
     display: flex;
     align-items: center;
@@ -440,7 +444,6 @@ body {
     color: #1abc9c;
 }
 
-/* Botón eliminar producto */
 .btn-eliminar {
     background: #ff6b6b;
     border: none;
@@ -457,7 +460,10 @@ body {
     background: #ee5a52;
 }
 
-/* Sección total del carrito */
+/* ========================================
+   13 - SECCIÓN TOTAL DEL CARRITO
+   ======================================== */
+
 .carrito-total {
     padding: 15px;
     border-top: 2px solid #ddd;
@@ -472,7 +478,60 @@ body {
 }
 
 /* ========================================
-   DISEÑO RESPONSIVO - TABLETS Y MÓVILES
+   14 - CONTENEDOR DE BOTONES DEL CARRITO
+   ======================================== */
+
+.btns-carrito {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-consultar-carrito {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #e67e22;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-consultar-carrito:hover {
+    background: #d35400;
+}
+
+.btn-vaciar-carrito {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #e74c3c;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-vaciar-carrito:hover {
+    background: #c0392b;
+}
+
+.btn-vaciar {
+    /* Clase adicional para el botón de vaciar */
+}
+
+/* ========================================
+   15 - DISEÑO RESPONSIVO (TABLETS Y MÓVILES)
    ======================================== */
 
 @media (max-width: 768px) {
@@ -494,11 +553,10 @@ body {
     .buscador {
         display: block;
         text-align: center;
-        /* justify-content: center; */
         margin-top: 10px;
     }
 
-    .buscador input{
+    .buscador input {
         margin: 10px;
     }
 

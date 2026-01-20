@@ -2,7 +2,6 @@
    CONFIGURACIÓN INICIAL
    ======================================== */
    
-const numero = "+59892882637";
 const inputBuscador = document.getElementById("inputBuscador");
 const imagenPorDefecto = "https://png.pngtree.com/png-clipart/20230703/original/pngtree-cardboard-boxes-png-image_9248461.png";
 
@@ -76,14 +75,6 @@ productos.forEach(prod => {
        EVENTOS DE BOTONES EN LA TARJETA
        ======================================== */
     
-    // Botón WhatsApp - Abre WhatsApp con mensaje predefinido
-    card.querySelector(".btn-contacto").addEventListener("click", function(e) {
-        e.preventDefault();
-        const mensaje = `Hola, me interesa el ${prod.nombre}`;
-        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-        window.open(url, "_blank");
-    });
-
     // Botón Añadir al Carrito - Agrega el producto al carrito
     const btnAgregar = card.querySelector(".btn-agregar-carrito");
     if (btnAgregar) {
@@ -124,3 +115,9 @@ if (inputBuscador) {
         });
     });
 }
+
+/* ========================================
+   INICIALIZAR EVENTOS DE CONTACTO
+   ======================================== */
+
+inicializarBotonesContacto();

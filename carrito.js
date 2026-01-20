@@ -11,6 +11,28 @@ const carritoVacio = document.getElementById("carritoVacio");
 // Array para almacenar productos del carrito (se borra al recargar)
 let carrito = [];
 
+// Cargar carrito desde localStorage al iniciar la página
+function cargarCarritoDelStorage() {
+    const carritoGuardado = localStorage.getItem("carrito");
+    if (carritoGuardado) {
+        try {
+            carrito = JSON.parse(carritoGuardado);
+            console.log("✓ Carrito cargado desde localStorage");
+        } catch (e) {
+            console.error("Error al cargar el carrito:", e);
+            carrito = [];
+        }
+    }
+}
+
+// Guardar carrito en localStorage
+function guardarCarritoEnStorage() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Cargar carrito al abrir la página
+cargarCarritoDelStorage();
+
 /* ========================================
    CONTROL DE APERTURA/CIERRE DEL CARRITO
    ======================================== */
@@ -67,6 +89,9 @@ function agregarAlCarrito(producto) {
     // Mostrar notificación en consola
     console.log(`✓ ${producto.nombre} agregado al carrito`);
     
+    // Guardar carrito en localStorage
+    guardarCarritoEnStorage();
+    
     // Actualizar visualización del carrito
     actualizarCarrito();
 }
@@ -116,6 +141,14 @@ function agregarTotal() {
     totalDiv.className = "carrito-total";
     totalDiv.innerHTML = `
         <h3>Total: $${total}</h3>
+        <div class="btns-carrito">
+            <button class="btn-consultar-carrito" onclick="consultarCarritoPorWhatsApp(carrito)">
+                📱 Consultar Carrito por WhatsApp
+            </button>
+            <button class="btn-vaciar-carrito btn-vaciar" onclick="vaciarCarrito()">
+                🗑️ Vaciar Carrito
+            </button>
+        </div>
     `;
     carritoItems.appendChild(totalDiv);
 }
@@ -127,6 +160,7 @@ function agregarTotal() {
 // Aumentar cantidad de un producto
 function aumentarCantidad(index) {
     carrito[index].cantidad++;
+    guardarCarritoEnStorage();
     actualizarCarrito();
 }
 
@@ -137,12 +171,33 @@ function disminuirCantidad(index) {
         carrito[index].cantidad--;
     } else {
         eliminarDelCarrito(index);
+        return;
     }
+    guardarCarritoEnStorage();
     actualizarCarrito();
 }
 
 // Eliminar producto del carrito completamente
 function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
+    guardarCarritoEnStorage();
     actualizarCarrito();
+}
+
+// Vaciar todo el carrito con confirmación
+function vaciarCarrito() {
+    if (carrito.length === 0) {
+        alert("El carrito ya está vacío");
+        return;
+    }
+    
+    // Mostrar confirmación
+    const confirmar = confirm("¿Deseas eliminar todo el carrito? Esta acción no se puede deshacer.");
+    
+    if (confirmar) {
+        carrito = [];
+        guardarCarritoEnStorage();
+        actualizarCarrito();
+        console.log("✓ Carrito vaciado completamente");
+    }
 }
