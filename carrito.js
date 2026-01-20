@@ -47,10 +47,23 @@ if (carritoBtn) {
     });
 }
 
+// Función para cerrar carrito con animación
+function cerrarCarritoConAnimacion() {
+    const carritoContent = document.querySelector(".carrito-content");
+    carritoContent.classList.add("slide-out");
+    
+    // Esperar a que termine la animación antes de ocultar
+    setTimeout(() => {
+        carritoModal.style.display = "none";
+        carritoContent.classList.remove("slide-out");
+    }, 300);
+}
+
 // Cerrar carrito con botón X
 if (cerrarCarrito) {
-    cerrarCarrito.addEventListener("click", () => {
-        carritoModal.style.display = "none";
+    cerrarCarrito.addEventListener("click", (e) => {
+        e.preventDefault();
+        cerrarCarritoConAnimacion();
     });
 }
 
@@ -58,7 +71,7 @@ if (cerrarCarrito) {
 if (carritoModal) {
     carritoModal.addEventListener("click", (e) => {
         if (e.target === carritoModal) {
-            carritoModal.style.display = "none";
+            cerrarCarritoConAnimacion();
         }
     });
 }

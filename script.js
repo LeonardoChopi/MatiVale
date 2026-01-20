@@ -45,16 +45,51 @@ productos.forEach(prod => {
         // Lógica del carrusel - Navegación entre imágenes
         const imgs = card.querySelectorAll(".carousel-img");
         let index = 0;
+        let autoPlayInterval;
+
+        // Función para cambiar imagen
+        const cambiarImagen = (direccion) => {
+            const imagenActual = imgs[index];
+            
+            if (direccion === "next") {
+                imagenActual.classList.add("slide-next");
+                imagenActual.classList.remove("active");
+                index = (index + 1) % imgs.length;
+            } else {
+                imagenActual.classList.add("slide-prev");
+                imagenActual.classList.remove("active");
+                index = (index - 1 + imgs.length) % imgs.length;
+            }
+            
+            setTimeout(() => {
+                imagenActual.classList.remove("slide-next", "slide-prev");
+                imgs[index].classList.add("active");
+            }, 10);
+        };
+
+        // Función para iniciar autoplay
+        const iniciarAutoplay = () => {
+            autoPlayInterval = setInterval(() => {
+                cambiarImagen("next");
+            }, 3000);
+        };
+
+        // Botón siguiente
         card.querySelector(".next").addEventListener("click", () => {
-            imgs[index].classList.remove("active");
-            index = (index + 1) % imgs.length;
-            imgs[index].classList.add("active");
+            clearInterval(autoPlayInterval);
+            cambiarImagen("next");
+            iniciarAutoplay();
         });
+
+        // Botón anterior
         card.querySelector(".prev").addEventListener("click", () => {
-            imgs[index].classList.remove("active");
-            index = (index - 1 + imgs.length) % imgs.length;
-            imgs[index].classList.add("active");
+            clearInterval(autoPlayInterval);
+            cambiarImagen("prev");
+            iniciarAutoplay();
         });
+
+        // Iniciar autoplay al cargar
+        iniciarAutoplay();
     } 
     /* --- Tarjetas Normales (una sola imagen) --- */
     else {
