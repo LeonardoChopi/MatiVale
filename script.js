@@ -1,14 +1,29 @@
+/* ========================================
+   CONFIGURACIÓN INICIAL
+   ======================================== */
+   
 const numero = "+59892882637";
 const inputBuscador = document.getElementById("inputBuscador");
+const imagenPorDefecto = "https://png.pngtree.com/png-clipart/20230703/original/pngtree-cardboard-boxes-png-image_9248461.png";
 
 // Los productos se importan desde productos.js
 
 const contenedor = document.getElementById("productos");
 
+/* ========================================
+   GENERACIÓN DE TARJETAS DE PRODUCTOS
+   ======================================== */
+
 productos.forEach(prod => {
     const card = document.createElement("div");
     card.classList.add("card");
 
+    // Asignar imagen por defecto si no hay imagen
+    if (!prod.imagen || prod.imagen === "") {
+        prod.imagen = imagenPorDefecto;
+    }
+
+    /* --- Tarjetas con Carrusel de Imágenes --- */
     if (prod.imagenes) {
         // Card con carrusel
         card.innerHTML = `
@@ -28,7 +43,7 @@ productos.forEach(prod => {
             </div>
         `;
 
-        // Lógica del carrusel
+        // Lógica del carrusel - Navegación entre imágenes
         const imgs = card.querySelectorAll(".carousel-img");
         let index = 0;
         card.querySelector(".next").addEventListener("click", () => {
@@ -42,6 +57,7 @@ productos.forEach(prod => {
             imgs[index].classList.add("active");
         });
     } 
+    /* --- Tarjetas Normales (una sola imagen) --- */
     else {
         // Card normal
         card.innerHTML = `
@@ -56,7 +72,11 @@ productos.forEach(prod => {
         `;
     }
 
-    // Botón WhatsApp
+    /* ========================================
+       EVENTOS DE BOTONES EN LA TARJETA
+       ======================================== */
+    
+    // Botón WhatsApp - Abre WhatsApp con mensaje predefinido
     card.querySelector(".btn-contacto").addEventListener("click", function(e) {
         e.preventDefault();
         const mensaje = `Hola, me interesa el ${prod.nombre}`;
@@ -64,7 +84,7 @@ productos.forEach(prod => {
         window.open(url, "_blank");
     });
 
-    // Botón Añadir al Carrito
+    // Botón Añadir al Carrito - Agrega el producto al carrito
     const btnAgregar = card.querySelector(".btn-agregar-carrito");
     if (btnAgregar) {
         btnAgregar.addEventListener("click", function(e) {
@@ -73,10 +93,15 @@ productos.forEach(prod => {
         });
     }
 
+    // Insertar tarjeta en el contenedor
     contenedor.appendChild(card);
 });
 
-// Función de filtrado por código o nombre
+/* ========================================
+   FILTRADO DE PRODUCTOS
+   ======================================== */
+
+// Busca productos por código o nombre mientras escribes
 if (inputBuscador) {
     inputBuscador.addEventListener("input", function(e) {
         const busqueda = e.target.value.toLowerCase().trim();

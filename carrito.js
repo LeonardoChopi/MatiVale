@@ -1,11 +1,20 @@
+/* ========================================
+   CONFIGURACIÓN INICIAL DEL CARRITO
+   ======================================== */
+
 const carritoBtn = document.getElementById("carritoBtn");
 const carritoModal = document.getElementById("carritoModal");
 const cerrarCarrito = document.getElementById("cerrarCarrito");
 const carritoItems = document.getElementById("carritoItems");
 const carritoVacio = document.getElementById("carritoVacio");
 
-// Array para almacenar productos del carrito (no se guarda)
+// Array para almacenar productos del carrito (se borra al recargar)
 let carrito = [];
+
+/* ========================================
+   CONTROL DE APERTURA/CIERRE DEL CARRITO
+   ======================================== */
+   
 
 // Abrir carrito
 if (carritoBtn) {
@@ -16,7 +25,7 @@ if (carritoBtn) {
     });
 }
 
-// Cerrar carrito
+// Cerrar carrito con botón X
 if (cerrarCarrito) {
     cerrarCarrito.addEventListener("click", () => {
         carritoModal.style.display = "none";
@@ -32,7 +41,12 @@ if (carritoModal) {
     });
 }
 
+/* ========================================
+   GESTIÓN DE PRODUCTOS EN EL CARRITO
+   ======================================== */
+
 // Función para agregar productos al carrito
+// Si el producto ya existe, aumenta la cantidad
 function agregarAlCarrito(producto) {
     // Buscar si el producto ya existe en el carrito
     const productoExistente = carrito.find(item => item.codigo === producto.codigo);
@@ -50,10 +64,10 @@ function agregarAlCarrito(producto) {
         });
     }
     
-    // Mostrar notificación
+    // Mostrar notificación en consola
     console.log(`✓ ${producto.nombre} agregado al carrito`);
     
-    // Actualizar carrito
+    // Actualizar visualización del carrito
     actualizarCarrito();
 }
 
@@ -66,6 +80,7 @@ function actualizarCarrito() {
     } else {
         carritoVacio.style.display = "none";
         
+        // Mostrar cada producto en el carrito
         carrito.forEach((producto, index) => {
             const itemCarrito = document.createElement("div");
             itemCarrito.className = "item-carrito";
@@ -88,12 +103,12 @@ function actualizarCarrito() {
             carritoItems.appendChild(itemCarrito);
         });
         
-        // Agregar total al final
+        // Agregar el total al final
         agregarTotal();
     }
 }
 
-// Función para agregar el total al final
+// Función para calcular y mostrar el total
 function agregarTotal() {
     const total = carrito.reduce((sum, producto) => sum + (producto.precio * producto.cantidad), 0);
     
@@ -105,13 +120,18 @@ function agregarTotal() {
     carritoItems.appendChild(totalDiv);
 }
 
-// Función para aumentar cantidad
+/* ========================================
+   FUNCIONES DE CANTIDAD Y ELIMINACIÓN
+   ======================================== */
+
+// Aumentar cantidad de un producto
 function aumentarCantidad(index) {
     carrito[index].cantidad++;
     actualizarCarrito();
 }
 
-// Función para disminuir cantidad
+// Disminuir cantidad de un producto
+// Si llega a 0, elimina el producto del carrito
 function disminuirCantidad(index) {
     if (carrito[index].cantidad > 1) {
         carrito[index].cantidad--;
@@ -121,7 +141,7 @@ function disminuirCantidad(index) {
     actualizarCarrito();
 }
 
-// Función para eliminar producto del carrito
+// Eliminar producto del carrito completamente
 function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
     actualizarCarrito();
