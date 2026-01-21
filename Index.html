@@ -23,6 +23,23 @@
         </div>
     </nav>
 
+    <section class="filtro">
+        <div class="filtro-grupo">
+            <label for="categoriaSelect">Categoría:</label>
+            <select class="categoria" name="Categoria" id="categoriaSelect">
+                <option value="todos" selected>Todas las categorías</option>
+            </select>
+        </div>
+        <div class="filtro-grupo">
+            <label for="precioMin">Precio Mínimo: <span id="precioMinValor">$0</span></label>
+            <input type="range" class="Rango-Precio" id="precioMin" min="0" max="2000" value="0">
+        </div>
+        <div class="filtro-grupo">
+            <label for="precioMax">Precio Máximo: <span id="precioMaxValor">$2000</span></label>
+            <input type="range" class="Rango-Precio" id="precioMax" min="0" max="2000" value="2000">
+        </div>
+    </section>
+
     <!-- CONTENEDOR DE PRODUCTOS -->
     <section class="productos" id="productos">
         <!-- Aquí JS insertará las cards automáticamente -->
@@ -50,6 +67,7 @@
 
     <!-- SCRIPTS EXTERNOS -->
     <script src="productos.js"></script>
+    <script src="filtro.js"></script>
     <script src="contacto.js"></script>
     <script src="script.js"></script>
     <script src="scan.js"></script>
