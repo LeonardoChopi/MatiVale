@@ -3,7 +3,6 @@
    ======================================== */
 
 const scanBtn = document.getElementById("scanBtn");
-const inputBuscador = document.getElementById("inputBuscador");
 const scanner = document.getElementById("scanner");
 let isScanning = false;
 

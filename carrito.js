@@ -8,9 +8,6 @@ const cerrarCarrito = document.getElementById("cerrarCarrito");
 const carritoItems = document.getElementById("carritoItems");
 const carritoVacio = document.getElementById("carritoVacio");
 
-// Array para almacenar productos del carrito (se borra al recargar)
-let carrito = [];
-
 // Cargar carrito desde localStorage al iniciar la página
 function cargarCarritoDelStorage() {
     const carritoGuardado = localStorage.getItem("carrito");
