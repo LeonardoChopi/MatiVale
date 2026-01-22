@@ -720,6 +720,25 @@ body {
     background: #c0392b;
 }
 
+.btn-imprimir {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #27ae60;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-imprimir:hover {
+    background: #229954;
+}
+
 .btn-vaciar {
     /* Clase adicional para el botón de vaciar */
 }

@@ -163,6 +163,9 @@ function agregarTotal() {
             <button class="btn-vaciar-carrito btn-vaciar" onclick="vaciarCarrito()">
                 🗑️ Vaciar Carrito
             </button>
+            <button class="btn-imprimir" onclick="generarPDFCarrito()">
+                🖨️ Imprimir Carrito
+            </button>
         </div>
     `;
     carritoItems.appendChild(totalDiv);
