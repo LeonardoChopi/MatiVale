@@ -5,13 +5,14 @@
 const scanBtn = document.getElementById("scanBtn");
 const scanner = document.getElementById("scanner");
 let isScanning = false;
+let quaggaInitialized = false;
 
 /* ========================================
    CONTROL PRINCIPAL DEL BOTÓN ESCANEAR
    ======================================== */
 
 if (scanBtn) {
-    scanBtn.addEventListener("click", async (e) => {
+    scanBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
         // Si ya está escaneando, detener
@@ -21,115 +22,123 @@ if (scanBtn) {
         }
 
         // Iniciar escaneo
-        isScanning = true;
-        scanBtn.textContent = "⏹ Detener";
-        scanner.style.display = "block";
-
-        try {
-            // Solicitar acceso a la cámara trasera del dispositivo
-            const stream = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: "environment" },
-                audio: false
-            });
-
-            // Crear elemento de video para mostrar la cámara
-            const video = document.createElement("video");
-            video.srcObject = stream;
-            video.setAttribute("autoplay", true);
-            video.setAttribute("playsinline", true);
-            video.style.width = "100%";
-            video.style.height = "100%";
-            video.style.objectFit = "cover";
-
-            // Insertar video en el contenedor del scanner
-            scanner.innerHTML = "";
-            scanner.appendChild(video);
-
-            // Cuando el video esté listo, inicializar Quagga
-            video.onloadedmetadata = () => {
-                video.play();
-                initializeQuagga(video, stream);
-            };
-
-        } catch (err) {
-            console.error("Error al acceder a la cámara:", err);
-            alert("No se pudo acceder a la cámara. Verifica los permisos.");
-            scanner.style.display = "none";
-            isScanning = false;
-            scanBtn.textContent = "🔍 Escanear";
-        }
+        startScanning();
     });
+}
 
-    /* ========================================
-       INICIALIZACIÓN DE QUAGGA (Librería de escaneo)
-       ======================================== */
+function startScanning() {
+    isScanning = true;
+    scanBtn.textContent = "⏹ Detener";
+    scanner.style.display = "block";
+    scanner.innerHTML = "";
 
-    function initializeQuagga(video, stream) {
-        Quagga.init({
-            // Configurar stream de video
-            inputStream: {
-                type: "LiveStream",
-                target: scanner,
-                constraints: {
-                    facingMode: "environment",
-                    width: { ideal: 1280 },
-                    height: { ideal: 720 }
-                }
-            },
-            // Tipos de códigos que se pueden detectar
-            decoder: {
-                readers: [
-                    "code_128_reader",
-                    "ean_reader",
-                    "ean_8_reader",
-                    "upc_reader",
-                    "upc_e_reader",
-                    "codabar_reader"
-                ]
-            },
-            locate: true,
-            frequency: 10
-        }, function (err) {
-            if (err) {
-                console.error("Error Quagga:", err);
-                stopScanning();
-                return;
+    // Inicializar Quagga directamente
+    Quagga.init({
+        inputStream: {
+            name: "Live",
+            type: "LiveStream",
+            target: scanner,
+            constraints: {
+                facingMode: "environment",
+                width: { min: 640, ideal: 1280, max: 1920 },
+                height: { min: 480, ideal: 720, max: 1080 }
             }
-            // Iniciar la detección
-            Quagga.start();
-        });
-
-        /* ========================================
-           DETECCIÓN DE CÓDIGO DE BARRAS
-           ======================================== */
-
-        // Se ejecuta cuando detecta un código válido
-        Quagga.onDetected((result) => {
-            if (result.codeResult && result.codeResult.code) {
-                const code = result.codeResult.code;
-                // Insertar el código en el input del buscador
-                inputBuscador.value = code;
-                // Disparar evento input para que se filtre automáticamente
-                inputBuscador.dispatchEvent(new Event("input"));
-                // Detener el scanner
-                stopScanning();
+        },
+        locator: {
+            patchSize: "medium",
+            halfSample: true
+        },
+        numOfWorkers: 2,
+        decoder: {
+            workers: {
+                external: null,
+                number: 1
+            },
+            readers: [
+                "code_128_reader",
+                "ean_reader",
+                "ean_8_reader",
+                "upc_reader",
+                "upc_e_reader",
+                "codabar_reader"
+            ],
+            debug: {
+                showCanvas: false,
+                showPatterns: false,
+                showFrequency: false,
+                showErrors: false
             }
-        });
-    }
-
-    /* ========================================
-       FUNCIÓN PARA DETENER EL ESCANER
-       ======================================== */
-       
-    function stopScanning() {
-        // Parar Quagga
-        if (Quagga && Quagga.initialized) {
-            Quagga.stop();
         }
-        // Limpiar interfaz
+    }, function (err) {
+        if (err) {
+            console.error("Error al inicializar Quagga:", err);
+            alert("Error al acceder a la cámara. Por favor, verifica los permisos.");
+            stopScanning();
+            return;
+        }
+
+        console.log("✓ Quagga inicializado correctamente");
+        quaggaInitialized = true;
+        Quagga.start();
+
+        // Configurar detección de códigos
+        Quagga.onDetected(onCodeDetected);
+    });
+}
+
+/* ========================================
+   DETECCIÓN DE CÓDIGO DE BARRAS
+   ======================================== */
+
+let lastDetectedCode = null;
+let detectionTimeout = null;
+
+function onCodeDetected(result) {
+    if (result && result.codeResult && result.codeResult.code) {
+        const code = result.codeResult.code;
+        
+        // Evitar detectar el mismo código múltiples veces
+        if (lastDetectedCode === code) {
+            return;
+        }
+        
+        lastDetectedCode = code;
+        
+        console.log("✓ Código detectado:", code);
+        
+        // Insertar el código en el input del buscador
+        const inputBuscador = document.getElementById("inputBuscador");
+        if (inputBuscador) {
+            inputBuscador.value = code;
+            // Disparar evento input para que se filtre automáticamente
+            inputBuscador.dispatchEvent(new Event("input"));
+        }
+        
+        // Detener el scanner después de detectar
+        stopScanning();
+    }
+}
+
+/* ========================================
+   FUNCIÓN PARA DETENER EL SCANNER
+   ======================================== */
+
+function stopScanning() {
+    isScanning = false;
+    scanBtn.textContent = "📱 Escanear";
+    
+    // Detener Quagga
+    if (Quagga && typeof Quagga.stop === 'function') {
+        Quagga.stop();
+        Quagga.offDetected(onCodeDetected);
+    }
+    
+    quaggaInitialized = false;
+    lastDetectedCode = null;
+    
+    // Limpiar contenedor después de un breve delay
+    setTimeout(() => {
         scanner.style.display = "none";
         scanner.innerHTML = "";
-        isScanning = false;
-        scanBtn.textContent = "🔍 Escanear";
-    }
+    }, 300);
 }

@@ -652,10 +652,15 @@ body {
    ======================================== */
 
 .btns-carrito {
-    display: flex;
+    display: grid;
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
+}
+
+.btns-contacto{
+    display: flex;
+    gap: 10px;
 }
 
 .btn-consultar-carrito {
@@ -675,6 +680,25 @@ body {
 
 .btn-consultar-carrito:hover {
     background: #d35400;
+}
+
+.btn-consultar-carrito-facebook {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #1877f2;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-consultar-carrito-facebook:hover {
+    background: #165ec7;
 }
 
 .btn-vaciar-carrito {

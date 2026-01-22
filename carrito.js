@@ -152,9 +152,14 @@ function agregarTotal() {
     totalDiv.innerHTML = `
         <h3>Total: $${total}</h3>
         <div class="btns-carrito">
-            <button class="btn-consultar-carrito" onclick="consultarCarritoPorWhatsApp(carrito)">
-                📱 Consultar Carrito por WhatsApp
-            </button>
+            <div class="btns-contacto">
+                <button class="btn-consultar-carrito" onclick="consultarCarritoPorWhatsApp(carrito)">
+                    📱 Consultar Carrito por WhatsApp
+                </button>
+                <button class="btn-consultar-carrito-facebook" onclick="consultarCarritoPorFacebook(carrito)">
+                    👥 Consultar por Facebook
+                </button>
+            </div>
             <button class="btn-vaciar-carrito btn-vaciar" onclick="vaciarCarrito()">
                 🗑️ Vaciar Carrito
             </button>

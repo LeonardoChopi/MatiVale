@@ -3,6 +3,7 @@
    ======================================== */
 
 const numero = "+59892882637";
+const nombreFacebook = "mirtha.pacilio";
 
 /**
  * Abre WhatsApp con un mensaje predefinido sobre el producto
@@ -43,7 +44,7 @@ function consultarCarritoPorWhatsApp(carritoItems) {
     }
     
     // Construir mensaje con todos los productos
-    let mensaje = "Hola, me gustaría consultar sobre la disponibilidad de:\n\n";
+    let mensaje = "Hola, me gustaría consultar sobre los productos:\n\n";
     let total = 0;
     
     carritoItems.forEach((item, index) => {
@@ -58,5 +59,20 @@ function consultarCarritoPorWhatsApp(carritoItems) {
     mensaje += `━━━━━━━━━━━━━━━━━\nTotal: $${total}`;
     
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
+}
+
+/**
+ * Envía el carrito completo por Facebook Messenger
+ * @param {Array} carritoItems - Array con los productos del carrito
+ */
+function consultarCarritoPorFacebook(carritoItems) {
+    if (carritoItems.length === 0) {
+        alert("El carrito está vacío");
+        return;
+    }
+    
+    // Abrir Facebook Messenger
+    const url = `https://m.me/${nombreFacebook}`;
     window.open(url, "_blank");
 }
