@@ -386,7 +386,6 @@ body {
 .btn-agregar-carrito {
     display: inline-block;
     margin-top: 10px;
-    margin-right: 5px;
     padding: 8px 12px;
     background: #4a7093;
     color: #fff;
@@ -763,6 +762,21 @@ body {
 
 
 /* Seccion mas detallada de los profuctos*/
+
+.btn-mas-info {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #2980b9;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
 
 .description {
     display: flex;
