@@ -37,6 +37,7 @@ productos.forEach(prod => {
                 <h3>${prod.nombre}</h3>
                 <span class="precio">$${prod.precio}</span> 
                 <br>
+                <a href="descripcion.html?codigo=${prod.codigo}" class="btn-mas-info">Mas Informacion</a>
                 <button class="btn-agregar-carrito">Añadir al Carrito</button>
                 <a href="#" class="btn-contacto">Consultar por WhatsApp</a>
             </div>
@@ -100,6 +101,7 @@ productos.forEach(prod => {
                 <h3>${prod.nombre}</h3>
                 <span class="precio">$${prod.precio}</span>
                 <br>
+                <a href="descripcion.html?codigo=${prod.codigo}" class="btn-mas-info">Mas Informacion</a>
                 <button class="btn-agregar-carrito">Añadir al Carrito</button>
                 <a href="#" class="btn-contacto">Consultar por WhatsApp</a>
             </div>

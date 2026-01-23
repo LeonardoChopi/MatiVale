@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatiVale</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/Pagina/Favicon.png" type="image/x-icon">
+    <meta name="description" content="Somos Mativale, de la ciudad de Mercedes, Soriano. Estamos los sábados en Plaza Rivera y los domingos en Plaza Lavalleja, con productos para vos.">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img/Pagina/LogoNombreTrans.png" alt="Logo">
+        </div>
+        <div class="buscador">
+            <input type="text" id="inputBuscador" placeholder="Ingresa código o nombre del producto...">
+            <button id="scanBtn" class="scan-btn">📱 Escanear</button>
+        </div>
+        <div class="contactos">
+            <a href="https://wa.me/+59892882637" target="_blank" class="whatsapp"><img src="img/Pagina/whatsapp.svg" alt="Contacto whatsapp"></a>
+            <a href="https://www.facebook.com/mirtha.pacilio/?locale=ms_MY" target="_blank" class="facebook"><img src="img/Pagina/facebook.svg" alt="Contacto facebook"></a>
+            <button id="carritoBtn"><img src="img/Pagina/Carrito.svg" alt="Carrito"></button>
+        </div>
+    </nav>
+
+
+    <section class="description">
+        <div class="img-container">
+            <img src="" alt="">
+        </div>
+        <div class="contenido">
+            <!-- Los datos se cargarán aquí con JavaScript -->
+        </div>
+    </section>    <!-- LIBRERÍA QUAGGA -->
+    <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
+
+    <!-- LIBRERÍA JSPDF PARA GENERAR PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- SCRIPTS EXTERNOS -->
+    <script src="productos.js"></script>
+    <script src="contacto.js"></script>
+    <script src="carrito.js"></script>
+    <script src="descripcion.js"></script>
+</body>
+</html>

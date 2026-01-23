@@ -759,12 +759,249 @@ body {
     /* Clase adicional para el botón de vaciar */
 }
 
+
+
+
+/* Seccion mas detallada de los profuctos*/
+
+.description {
+    display: flex;
+    gap: 40px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    padding: 40px;
+    margin: 30px 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-start;
+}
+
+.img-container {
+    flex: 0 0 400px;
+    text-align: center;
+}
+
+.img-container img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contenido h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin: 0;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.contenido .categoria,
+.contenido .codigo {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+    padding: 8px 0;
+}
+
+.contenido .categoria strong,
+.contenido .codigo strong {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.contenido .descripcion {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.precio-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.precio-container .precio {
+    font-size: 36px;
+    font-weight: bold;
+    color: #1abc9c;
+}
+
+.botones-accion {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.botones-accion .btn-agregar-carrito,
+.botones-accion .btn-contacto,
+.botones-accion .btn-contacto-facebook {
+    flex: 1;
+    min-width: 200px;
+    padding: 14px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.botones-accion .btn-agregar-carrito {
+    background: #4a7093;
+    color: white;
+}
+
+.botones-accion .btn-agregar-carrito:hover {
+    background: #3a5a7d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 112, 147, 0.3);
+}
+
+.botones-accion .btn-contacto {
+    background: #1abc9c;
+    color: white;
+    text-decoration: none;
+}
+
+.botones-accion .btn-contacto:hover {
+    background: #16a085;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 188, 156, 0.3);
+}
+
+.botones-accion .btn-contacto-facebook {
+    flex: 1;
+    min-width: 200px;
+    padding: 14px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    background: #1877f2;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0 0;
+}
+
+.botones-accion .btn-contacto-facebook:hover {
+    background: #165ec7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #2c3e50;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.btn-volver:hover {
+    background: #2c3e50;
+    border-color: #1abc9c;
+    color: #f8f9fa;
+}
+
+/* ========================================
+   ESTILOS ESPECÍFICOS PARA DESCRIPCIÓN
+   ======================================== */
+
+.description .categoria,
+.description .codigo {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: auto !important;
+}
+
+.description .categoria:hover,
+.description .codigo:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+
 /* ========================================
    15 - DISEÑO RESPONSIVO (TABLETS Y MÓVILES)
    ======================================== */
 
+@media (max-width: 1024px) {
+    .description {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .img-container {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .img-container img {
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
     
+    .description {
+        padding: 20px;
+        margin: 15px 10px;
+    }
+
+    .contenido h1 {
+        font-size: 24px;
+    }
+
+    .precio-container .precio {
+        font-size: 28px;
+    }
+
+    .botones-accion {
+        flex-direction: column;
+    }
+
+    .botones-accion .btn-agregar-carrito,
+    .botones-accion .btn-contacto,
+    .botones-accion .btn-contacto-facebook {
+        width: 100%;
+        min-width: unset;
+    }
+
     .carrito-content {
         max-width: 90%;
     }
@@ -797,5 +1034,36 @@ body {
 
     .contactos button {
         margin-right: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .description {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .contenido h1 {
+        font-size: 20px;
+    }
+
+    .contenido .categoria,
+    .contenido .codigo {
+        font-size: 14px;
+    }
+
+    .contenido .descripcion {
+        font-size: 14px;
+    }
+
+    .precio-container .precio {
+        font-size: 24px;
+    }
+
+    .botones-accion .btn-agregar-carrito,
+    .botones-accion .btn-contacto,
+    .botones-accion .btn-contacto-facebook {
+        padding: 12px 16px;
+        font-size: 14px;
     }
 }
