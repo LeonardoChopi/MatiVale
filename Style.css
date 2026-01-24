@@ -758,10 +758,48 @@ body {
     /* Clase adicional para el botón de vaciar */
 }
 
-
+.card-image{
+    border-radius: 15px !important;
+}
 
 
 /* Seccion mas detallada de los profuctos*/
+
+.carousel-descripcion {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-descripcion img {
+    display: none;
+    width: 100%;
+}
+
+.carousel-descripcion img.active {
+    display: block;
+}
+
+.carousel-descripcion button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 25px;
+    padding: 5px 12px;
+    cursor: pointer;
+}
+
+.carousel-descripcion .prev {
+    left: 10px;
+}
+
+.carousel-descripcion .next {
+    right: 10px;
+}
+
 
 .btn-mas-info {
     display: inline-block;
@@ -776,6 +814,10 @@ body {
     text-decoration: none;
     cursor: pointer;
     transition: background 0.2s;
+}
+
+.btn-mas-info:hover {
+    background: #1c804c;
 }
 
 .description {

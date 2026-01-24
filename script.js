@@ -27,11 +27,13 @@ productos.forEach(prod => {
         // Card con carrusel
         card.innerHTML = `
             <div class="carousel">
-                ${prod.imagenes.map((img, i) => `
-                    <img src="${img}" class="carousel-img ${i === 0 ? 'active' : ''}">
-                `).join("")}
-                <button class="prev">‹</button>
-                <button class="next">›</button>
+                <a href="descripcion.html?codigo=${prod.codigo}">
+                    ${prod.imagenes.map((img, i) => `
+                        <img class="card-image" src="${img}" class="carousel-img ${i === 0 ? 'active' : ''}">
+                    `).join("")}
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </a>
             </div>
             <div class="card-content">
                 <h3>${prod.nombre}</h3>
@@ -39,7 +41,6 @@ productos.forEach(prod => {
                 <br>
                 <a href="descripcion.html?codigo=${prod.codigo}" class="btn-mas-info">Mas Informacion</a>
                 <button class="btn-agregar-carrito">Añadir al Carrito</button>
-                <a href="#" class="btn-contacto">Consultar por WhatsApp</a>
             </div>
         `;
 
@@ -96,14 +97,15 @@ productos.forEach(prod => {
     else {
         // Card normal
         card.innerHTML = `
-            <img src="${prod.imagen}" alt="${prod.nombre}">
+            <a href="descripcion.html?codigo=${prod.codigo}">    
+                <img src="${prod.imagen}" alt="${prod.nombre}" class="card-image">
+            </a>
             <div class="card-content">
                 <h3>${prod.nombre}</h3>
                 <span class="precio">$${prod.precio}</span>
                 <br>
                 <a href="descripcion.html?codigo=${prod.codigo}" class="btn-mas-info">Mas Informacion</a>
                 <button class="btn-agregar-carrito">Añadir al Carrito</button>
-                <a href="#" class="btn-contacto">Consultar por WhatsApp</a>
             </div>
         `;
     }
