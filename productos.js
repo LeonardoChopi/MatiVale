@@ -211,14 +211,6 @@ const productos = [
     imagen: "https://delsurimportaciones.com.uy/wp-content/uploads/2025/03/Photoroom-20250306_154316-1152x1536-1.png"
 },
 {
-    nombre: "Reel Black MK 5000",
-    categoria: "Pesca",
-    descripcion: "Reel Black MK 5000, diseñado para ofrecer un rendimiento óptimo en diversas condiciones de pesca.",
-    precio: "0",
-    codigo: "MK5000",
-    imagen: "https://m.media-amazon.com/images/I/61wp-59efiL.jpg"
-},
-{
     nombre: "Reel de Pesca Pro",
     categoria: "Pesca",
     descripcion: "Reel de pesca Pro, ideal para pescadores que buscan calidad y durabilidad en su equipo.",
@@ -230,31 +222,23 @@ const productos = [
     nombre: "Reel RED SL 500",
     categoria: "Pesca",
     descripcion: "Reel RED SL 500, compacto y eficiente para una experiencia de pesca satisfactoria.",
-    precio: "0",
+    precio: "780",
     codigo: "SL500",
     imagen: "https://http2.mlstatic.com/D_NQ_NP_742813-MLU82425336491_022025-O.webp"
 },
 {
-    nombre: "Reel GOLD SW 5000",
+    nombre: "Haojia Plus 4000",
     categoria: "Pesca",
-    descripcion: "Reel GOLD SW 5000, diseñado para pescadores que buscan un equipo robusto y confiable.",
+    descripcion: Haojia Plus 4000, ideal para pescadores que requieren un equipo de alto rendimiento.",
     precio: "0",
-    codigo: "SW5000",
-    imagen: "https://http2.mlstatic.com/D_NQ_NP_898851-MLU93543638422_102025-O.webp"
-},
-{
-    nombre: "Reel Master FENG 6000",
-    categoria: "Pesca",
-    descripcion: "Reel Master FENG 6000, ideal para pescadores que requieren un equipo de alto rendimiento.",
-    precio: "0",
-    codigo: "FENG6000",
-    imagen: "https://http2.mlstatic.com/D_NQ_NP_808601-MLU93585977482_102025-O.webp"
+    codigo: "MR-61",
+    imagen: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fhttp2.mlstatic.com%2FD_NQ_NP_667499-MLU73331039394_122023-O.webp&tbnid=PVOa4A8H_i5XmM&vet=1&imgrefurl=https%3A%2F%2Fwww.mercadolibre.com.uy%2Fmolinete-haojia-10-gm-4000-pacu-tucunare-robalo-color-azul-biela-derechaizquierda%2Fp%2FMLU28894766&docid=bphsbhoY0DnJ1M&w=500&h=493&hl=es-UY&source=sh%2Fx%2Fim%2Fm6%2F4&kgs=b701ecf787753b63&shem=isst#imgrc=PVOa4A8H_i5XmM&imgdii=Bse1Xl9Eh5hqRM"
 },
 {
     nombre: "Reel de Pesca Eco Plástico",
     categoria: "Pesca",
     descripcion: "Reel de pesca Eco Plástico, una opción económica y funcional para pescadores principiantes.",
-    precio: "0",
+    precio: "380",
     codigo: "200",
     imagen: "https://http2.mlstatic.com/D_NQ_NP_627133-MLU74219932553_012024-O.webp"
 },
@@ -262,7 +246,7 @@ const productos = [
     nombre: "Reel Ocean Pro",
     categoria: "Pesca",
     descripcion: "Reel Ocean Pro, diseñado para ofrecer un rendimiento superior en diversas condiciones de pesca.",
-    precio: "0",
+    precio: "690",
     codigo: "3000",
     imagen: "https://img.kwcdn.com/product/fancy/5b329044-d783-4e41-9f2c-51e0279cfdfc.jpg?imageMogr2/auto-orient|imageView2/2/w/800/q/70/format/webp"
 },
@@ -278,7 +262,7 @@ const productos = [
     nombre: "Caña Pesca Telescópica C/Reel y Accesorios en Blister",
     categoria: "Pesca",
     descripcion: "Caña de pesca telescópica con reel y accesorios incluidos, perfecta para pescadores de todos los niveles.",
-    precio: "0",
+    precio: "690",
     codigo: "DHSet",
     imagen: "https://http2.mlstatic.com/D_NQ_NP_963755-MLU76568512594_062024-O.webp"
 },
@@ -286,7 +270,7 @@ const productos = [
     nombre: "Posa Caña Soporte (45cm)",
     categoria: "Pesca",
     descripcion: "Posa caña soporte de 45cm, ideal para mantener la caña estable durante la pesca.",
-    precio: "0",
+    precio: "150",
     codigo: "7403",
     imagen: "https://i5.walmartimages.com/asr/2dffa610-d866-4b23-843f-1753caf241e3.1ad944824d740c713050f4abbf6fecde.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
 },
@@ -295,7 +279,7 @@ const productos = [
     nombre: "Luz Punta Caña de Pesca",
     categoria: "Pesca",
     descripcion: "Luz para la punta de la caña de pesca, ideal para actividades nocturnas.",
-    precio: "0",
+    precio: "50",
     codigo: "7410",
     imagen: "https://http2.mlstatic.com/D_NQ_NP_644714-MLU99130810295_112025-O.webp"
 },
