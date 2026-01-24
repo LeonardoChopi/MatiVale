@@ -211,14 +211,6 @@ const productos = [
     imagen: "https://delsurimportaciones.com.uy/wp-content/uploads/2025/03/Photoroom-20250306_154316-1152x1536-1.png"
 },
 {
-    nombre: "Reel de Pesca Pro",
-    categoria: "Pesca",
-    descripcion: "Reel de pesca Pro, ideal para pescadores que buscan calidad y durabilidad en su equipo.",
-    precio: "0",
-    codigo: "CB280",
-    imagen: "https://i.siteapi.org/VpASIkfCaVYiPdY7KbJVLezyMZQ=/fit-in/330x/top/s2.siteapi.org/36c8f325338d445/img/kynwu4nks80kkg4socwg84cog8kgkg"
-},
-{
     nombre: "Reel RED SL 500",
     categoria: "Pesca",
     descripcion: "Reel RED SL 500, compacto y eficiente para una experiencia de pesca satisfactoria.",
