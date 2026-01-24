@@ -91,7 +91,7 @@ function generarPDFCarrito() {
             <p>Ubicación: Mercedes, Soriano - Sábados en Plaza Rivera | Domingos en Plaza Lavalleja</p>
             <p style="margin-top: 20px; font-style: italic;">
                 <strong>Documento generado automáticamente por </strong>
-                <a href="https://matiVale.store" target="_blank">www.matiVale.store</a>
+                <a href="https://MatiVale.store" target="_blank">www.MatiVale.store</a>
             </p>
         </div>
     `;
