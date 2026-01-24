@@ -1,11 +1,9 @@
 /* ========================================
    CONFIGURACIÓN INICIAL
    ======================================== */
-   
+
 const inputBuscador = document.getElementById("inputBuscador");
 const imagenPorDefecto = "https://png.pngtree.com/png-clipart/20230703/original/pngtree-cardboard-boxes-png-image_9248461.png";
-
-// Los productos se importan desde productos.js
 
 const contenedor = document.getElementById("productos");
 
@@ -14,92 +12,98 @@ const contenedor = document.getElementById("productos");
    ======================================== */
 
 productos.forEach(prod => {
+
     const card = document.createElement("div");
     card.classList.add("card");
 
-    // Asignar imagen por defecto si no hay imagen
-    if (!prod.imagen || prod.imagen === "") {
-        prod.imagen = imagenPorDefecto;
+    // Normalizar imágenes
+    if (prod.imagenes && prod.imagenes.length > 0) {
+        // Si tiene array de imágenes, ok
+    } else if (prod.imagen && prod.imagen !== "") {
+        // Si tiene una sola imagen, convertirla en array
+        prod.imagenes = [prod.imagen];
+    } else {
+        // Si no tiene nada, usar imagen por defecto
+        prod.imagenes = [imagenPorDefecto];
     }
 
-    /* --- Tarjetas con Carrusel de Imágenes --- */
-    if (prod.imagenes) {
-        // Card con carrusel
+    /* ========================================
+       TARJETAS CON CARRUSEL
+       ======================================== */
+
+    if (prod.imagenes.length > 1) {
+
         card.innerHTML = `
             <div class="carousel">
-                <a href="descripcion.html?codigo=${prod.codigo}">
-                    ${prod.imagenes.map((img, i) => `
-                        <img class="card-image" src="${img}" class="carousel-img ${i === 0 ? 'active' : ''}">
-                    `).join("")}
-                    <button class="prev">‹</button>
-                    <button class="next">›</button>
-                </a>
+                ${prod.imagenes.map((img, i) => `
+                    <img src="${img}" 
+                         class="card-image carousel-img ${i === 0 ? 'active' : ''}">
+                `).join("")}
+                <button class="prev">‹</button>
+                <button class="next">›</button>
             </div>
             <div class="card-content">
                 <h3>${prod.nombre}</h3>
-                <span class="precio">$${prod.precio}</span> 
+                <span class="precio">$${prod.precio}</span>
                 <br>
                 <a href="descripcion.html?codigo=${prod.codigo}" class="btn-mas-info">Mas Informacion</a>
                 <button class="btn-agregar-carrito">Añadir al Carrito</button>
             </div>
         `;
 
-        // Lógica del carrusel - Navegación entre imágenes
         const imgs = card.querySelectorAll(".carousel-img");
         let index = 0;
         let autoPlayInterval;
 
-        // Función para cambiar imagen
         const cambiarImagen = (direccion) => {
+
+            if (imgs.length <= 1) return;
+
             const imagenActual = imgs[index];
-            
+            imagenActual.classList.remove("active");
+
             if (direccion === "next") {
-                imagenActual.classList.add("slide-next");
-                imagenActual.classList.remove("active");
                 index = (index + 1) % imgs.length;
             } else {
-                imagenActual.classList.add("slide-prev");
-                imagenActual.classList.remove("active");
                 index = (index - 1 + imgs.length) % imgs.length;
             }
-            
-            setTimeout(() => {
-                imagenActual.classList.remove("slide-next", "slide-prev");
-                imgs[index].classList.add("active");
-            }, 10);
+
+            imgs[index].classList.add("active");
         };
 
-        // Función para iniciar autoplay
         const iniciarAutoplay = () => {
             autoPlayInterval = setInterval(() => {
                 cambiarImagen("next");
             }, 3000);
         };
 
-        // Botón siguiente
-        card.querySelector(".next").addEventListener("click", () => {
+        const btnNext = card.querySelector(".next");
+        const btnPrev = card.querySelector(".prev");
+
+        btnNext.addEventListener("click", () => {
             clearInterval(autoPlayInterval);
             cambiarImagen("next");
             iniciarAutoplay();
         });
 
-        // Botón anterior
-        card.querySelector(".prev").addEventListener("click", () => {
+        btnPrev.addEventListener("click", () => {
             clearInterval(autoPlayInterval);
             cambiarImagen("prev");
             iniciarAutoplay();
         });
 
-        // Iniciar autoplay al cargar
         iniciarAutoplay();
-    } 
-    /* --- Tarjetas Normales (una sola imagen) --- */
-    else {
-        // Card normal
+
+    } else {
+
+        /* ========================================
+           TARJETA NORMAL (UNA SOLA IMAGEN)
+           ======================================== */
+
         card.innerHTML = `
-            <a href="descripcion.html?codigo=${prod.codigo}">    
-                <img src="${prod.imagen}" alt="${prod.nombre}" class="card-image">
-            </a>
+            <img src="${prod.imagenes[0]}" 
+                 alt="${prod.nombre}" 
+                 class="card-image">
             <div class="card-content">
                 <h3>${prod.nombre}</h3>
                 <span class="precio">$${prod.precio}</span>
@@ -111,11 +115,11 @@ productos.forEach(prod => {
     }
 
     /* ========================================
-       EVENTOS DE BOTONES EN LA TARJETA
+       EVENTOS DE BOTONES
        ======================================== */
-    
-    // Botón Añadir al Carrito - Agrega el producto al carrito
+
     const btnAgregar = card.querySelector(".btn-agregar-carrito");
+
     if (btnAgregar) {
         btnAgregar.addEventListener("click", function(e) {
             e.preventDefault();
@@ -123,40 +127,43 @@ productos.forEach(prod => {
         });
     }
 
-    // Insertar tarjeta en el contenedor
     contenedor.appendChild(card);
 });
+
 
 /* ========================================
    FILTRADO DE PRODUCTOS
    ======================================== */
 
-// Busca productos por código o nombre mientras escribes
 if (inputBuscador) {
     inputBuscador.addEventListener("input", function(e) {
+
         const busqueda = e.target.value.toLowerCase().trim();
         const cards = document.querySelectorAll(".card");
-        
+
         cards.forEach((card, index) => {
+
             const codigoProducto = productos[index].codigo.toLowerCase();
             const nombreProducto = productos[index].nombre.toLowerCase();
-            
-            if (busqueda === "") {
-                // Si está vacío, mostrar todos
-                card.style.display = "";
-            } else if (codigoProducto.includes(busqueda) || nombreProducto.includes(busqueda)) {
-                // Si coincide el código O el nombre, mostrar
+
+            if (
+                busqueda === "" ||
+                codigoProducto.includes(busqueda) ||
+                nombreProducto.includes(busqueda)
+            ) {
                 card.style.display = "";
             } else {
-                // Si no coincide, ocultar
                 card.style.display = "none";
             }
         });
     });
 }
 
+
 /* ========================================
-   INICIALIZAR EVENTOS DE CONTACTO
+   INICIALIZAR CONTACTO
    ======================================== */
 
-inicializarBotonesContacto();
+if (typeof inicializarBotonesContacto === "function") {
+    inicializarBotonesContacto();
+}
