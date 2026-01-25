@@ -1,7 +1,7 @@
 const productos = [
     {
         nombre: "Botella 1L jabón para burbujeros",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Botella de 1 litro de jabón especial para hacer burbujas. Ideal para fiestas y eventos al aire libre.",
         precio: "170",
         codigo: "2025021300548",
@@ -9,7 +9,7 @@ const productos = [
     },
     {
         nombre: "Camión amarillo plástico caja",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Camión de juguete amarillo con caja de plástico. Perfecto para que los niños jueguen y desarrollen su imaginación.",
         precio: "370",
         codigo: "2024080700047",
@@ -17,7 +17,7 @@ const productos = [
     },
     {
         nombre: "Minicompresor 12v",
-        categoria: "Herramienta",
+        categoria: "⚒️Herramienta",
         descripcion: "Minicompresor portátil de 12V, ideal para inflar neumáticos de autos, bicicletas y otros inflables. Compacto y fácil de usar.",
         precio: "990",
         codigo: "7737440348944",
@@ -25,7 +25,7 @@ const productos = [
     },
     {
         nombre: "Trompeta",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Trompeta de juguete de colores vibrantes. Perfecta para que los niños exploren su creatividad musical.",
         precio: "390",
         codigo: "2025062000568",
@@ -33,7 +33,7 @@ const productos = [
     },
     {
         nombre: "Tira tazo de Goma Eva",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Tira de tazos hechos de Goma Eva, ideales para juegos y actividades creativas. Vienen en varios colores y diseños divertidos.",
         precio: "100",
         codigo: "6974891400444",
@@ -41,7 +41,7 @@ const productos = [
     },
     {
         nombre: "Set pinturas mariposa",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Set de pinturas con temática de mariposas. Incluye varios colores y pinceles para que los niños puedan crear hermosas obras de arte.",
         precio: "290",
         codigo: "2025070801492",
@@ -49,7 +49,7 @@ const productos = [
     },
     {
         nombre: "Set caballos/unicornios en tarro",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Set de figuras de caballos y unicornios en un tarro transparente. Perfecto para coleccionar o jugar.",
         precio: "200",
         codigo: "2024080100366",
@@ -57,7 +57,7 @@ const productos = [
     },
     {
         nombre: "Popit con pilas",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Popit sensorial con luces y sonidos, funciona con pilas. Ideal para aliviar el estrés y mejorar la concentración.",
         precio: "290",
         codigo: "2025030700087",
@@ -68,7 +68,7 @@ const productos = [
     },
     {
         nombre: "Números con imán",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Números del 0 al 9 con imán en la parte posterior. Perfectos para aprender a contar y realizar actividades educativas en superficies metálicas.",
         precio: "100",
         codigo: "2024080100199",
@@ -76,7 +76,7 @@ const productos = [
     },
     {
         nombre: "Cuerda de saltar",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Cuerda de saltar ajustable, ideal para ejercicio y juegos al aire libre. Hecha de materiales duraderos para un uso prolongado.",
         precio: "190",
         codigo: "2025062000810",
@@ -84,7 +84,7 @@ const productos = [
     },
     {
         nombre: "Cuerda de saltar",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Cuerda de saltar ajustable, ideal para ejercicio y juegos al aire libre. Hecha de materiales duraderos para un uso prolongado.",
         precio: "100",
         codigo: "2021121400119",
@@ -92,7 +92,7 @@ const productos = [
     },
     {
         nombre: "Bley bley",
-        categoria: "Juguete",
+        categoria: "🧸Juguete",
         descripcion: "Bley bley clásico de plástico, ideal para juegos y competencias. Fácil de usar y transportar.",
         precio: "200",
         codigo: "2025062000407",
@@ -100,15 +100,15 @@ const productos = [
     },
     {
         nombre: "Caja pesca",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Caja pesca ideal para actividades de pesca. Producto práctico y resistente para organizar y transportar accesorios.",
         precio: "230",
-        codigo: "",
+        codigo: "1231231231456",
         imagen: "https://f.fcdn.app/imgs/10c9ba/www.casagarrido.com.uy/garruy/51ea/original/catalogo/12121706_1/2000-2000/caja-con-11-divisiones-g-28x17-5x4-cm-caja-con-11-divisiones-g-28x17-5x4-cm.jpg"
     },
     {
         nombre: "Lingas x 10Unid",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Lingas pensadas para uso en pesca, útiles y duraderas para diferentes tipos de montaje.",
         precio: "100",
         codigo: "2025051317806",
@@ -116,7 +116,7 @@ const productos = [
     },
     {
         nombre: "Lingas x 60Unid",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Lingas pensadas para uso en pesca, útiles y duraderas para diferentes tipos de montaje.",
         precio: "360",
         codigo: "2025051317806",
@@ -124,7 +124,7 @@ const productos = [
     },
     {
         nombre: "Linterna con picana",
-        categoria: "Pesca",
+        categoria: ["🦈Pesca" , "🔦Linterna"],
         descripcion: "Linterna con picana práctica para actividades al aire libre y pesca nocturna.",
         precio: "490",
         codigo: "1101",
@@ -132,7 +132,7 @@ const productos = [
     },
     {
         nombre: "Linterna farol",
-        categoria: "Pesca",
+        categoria: ["🦈Pesca" , "🔦Linterna"],
         descripcion: "Linterna farol ideal para iluminar zonas de pesca o campamento.",
         precio: "350",
         codigo: "2835",
@@ -140,7 +140,7 @@ const productos = [
     },
     {
         nombre: "Linterna farol con pie",
-        categoria: "Pesca",
+        categoria: ["🦈Pesca" , "🔦Linterna"],
         descripcion: "Linterna farol con pie estable, perfecta para usar en exteriores.",
         precio: "560",
         codigo: "6974758868417",
@@ -148,7 +148,7 @@ const productos = [
     },
     {
         nombre: "Linterna farol pie",
-        categoria: "Pesca",
+        categoria: ["🦈Pesca" , "🔦Linterna"],
         descripcion: "Linterna farol pie resistente y funcional para actividades nocturnas.",
         precio: "395",
         codigo: "1256558886071",
@@ -156,7 +156,7 @@ const productos = [
     },
     {
         nombre: "Linterna farol recargable solar",
-        categoria: "Pesca",
+        categoria: ["🦈Pesca" , "🔦Linterna"],
         descripcion: "Linterna farol recargable solar, ideal para pesca y uso al aire libre.",
         precio: "380",
         codigo: "SH-5800T",
@@ -164,7 +164,7 @@ const productos = [
     },
     {
         nombre: "Set boyas",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Set boyas práctico para distintas modalidades de pesca.",
         precio: "160",
         codigo: "15PCS",
@@ -172,15 +172,15 @@ const productos = [
     },
     {
         nombre: "Tanza 0.3",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Tanza resistente para pesca, adecuada para diferentes tipos de carnada.",
         precio: "100",
-        codigo: "",
+        codigo: "6136136",
         imagen: "https://http2.mlstatic.com/D_NQ_NP_630382-MLU94707515594_102025-O.webp"
     },
     {
         nombre: "Tanza 0,6",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Tanza de pesca versátil y confiable.",
         precio: "100",
         codigo: "6935090600028",
@@ -188,7 +188,7 @@ const productos = [
     },
     {
         nombre: "Tanza 0,6",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Tanza para pesca de buena calidad y rendimiento.",
         precio: "150",
         codigo: "]C1MR-506",
@@ -196,15 +196,15 @@ const productos = [
     },
     {
         nombre: "Tanza multifilamento 0,25",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Tanza multifilamento resistente y de alto desempeño para pesca.",
         precio: "200",
-        codigo: "",
+        codigo: "141551521",
         imagen: "https://http2.mlstatic.com/D_NQ_NP_839633-MLU98377660099_112025-O.webp"
     },
     {
         nombre: "Caña Pesca LINGA 2 Tramos 1.5m",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Caña de pesca LINGA de 2 tramos y 1.5 metros de longitud, ideal para principiantes y pescadores ocasionales.",
         precio: "500",
         codigo: "7293",
@@ -212,7 +212,7 @@ const productos = [
     },
     {
         nombre: "Reel de Pesca Pro",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Reel de pesca Pro, ideal para pescadores que buscan calidad y durabilidad en su equipo.",
         precio: "0",
         codigo: "CB280",
@@ -220,7 +220,7 @@ const productos = [
     },
     {
         nombre: "Reel RED SL 500",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Reel RED SL 500, compacto y eficiente para una experiencia de pesca satisfactoria.",
         precio: "780",
         codigo: "SL500",
@@ -228,7 +228,7 @@ const productos = [
     },
     {
         nombre: "Haojia Plus 4000",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Haojia Plus 4000, ideal para pescadores que requieren un equipo de alto rendimiento.",
         precio: "650",
         codigo: "MR-61",
@@ -236,7 +236,7 @@ const productos = [
     },
     {
         nombre: "Reel de Pesca Eco Plástico",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Reel de pesca Eco Plástico, una opción económica y funcional para pescadores principiantes.",
         precio: "380",
         codigo: "200",
@@ -244,7 +244,7 @@ const productos = [
     },
     {
         nombre: "Reel Ocean Pro",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Reel Ocean Pro, diseñado para ofrecer un rendimiento superior en diversas condiciones de pesca.",
         precio: "690",
         codigo: "3000",
@@ -252,15 +252,15 @@ const productos = [
     },
     {
         nombre: "Reel Rotativo",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Reel rotativo, ideal para pescadores que buscan versatilidad y facilidad de uso en su equipo.",
         precio: "950",
-        codigo: "",
+        codigo: "1231231261457",
         imagen: "https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/0a92d0329f01205c579ff5feacc7273d.jpg?imageMogr2/auto-orient|imageView2/2/w/800/q/70/format/webp"
     },
     {
         nombre: "Caña Pesca Telescópica C/Reel y Accesorios en Blister",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Caña de pesca telescópica con reel y accesorios incluidos, perfecta para pescadores de todos los niveles.",
         precio: "690",
         codigo: "DHSet",
@@ -268,7 +268,7 @@ const productos = [
     },
     {
         nombre: "Posa Caña Soporte (45cm)",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Posa caña soporte de 45cm, ideal para mantener la caña estable durante la pesca.",
         precio: "150",
         codigo: "7403",
@@ -277,7 +277,7 @@ const productos = [
 
     {
         nombre: "Luz Punta Caña de Pesca",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Luz para la punta de la caña de pesca, ideal para actividades nocturnas.",
         precio: "50",
         codigo: "7410",
@@ -285,7 +285,7 @@ const productos = [
     },
     {
         nombre: "Tijera Alicate Pesca",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Tijera alicate diseñada para facilitar las tareas de pesca.",
         precio: "200",
         codigo: "7477",
@@ -293,7 +293,7 @@ const productos = [
     },
     {
         nombre: "REEL ROTATIVO CON DEVANADOR 4000 METAL",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Reel rotativo con devanador 4000 de metal, ideal para pescadores que buscan durabilidad y rendimiento.",
         precio: "2900",
         codigo: "MR-69",
@@ -301,7 +301,7 @@ const productos = [
     },
     {
         nombre: "REEL ROTATIVO CON DEVANADOR 3000 PLÁSTICO",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Reel rotativo con devanador 3000 de plástico, una opción económica para pescadores principiantes.",
         precio: "2400",
         codigo: "MR-68",
@@ -309,7 +309,7 @@ const productos = [
     },
     {
         nombre: "Veneno Mata Cucarachas <br> 1 Unidad",
-        categoria: "Hogar",
+        categoria: "🏠Hogar",
         descripcion: "Veneno especializado para eliminar cucarachas de manera efectiva y segura. <br><br> 1 unidad de $70",
         precio: "70",
         codigo: "6948926230153",
@@ -317,7 +317,7 @@ const productos = [
     },
     {
         nombre: "Veneno Mata Cucarachas <br> 5 Unidad",
-        categoria: "Hogar",
+        categoria: "🏠Hogar",
         descripcion: "Veneno especializado para eliminar cucarachas de manera efectiva y segura. <br><br> 5 unidad de $300",
         precio: "300",
         codigo: "6948926230153",
@@ -325,7 +325,7 @@ const productos = [
     },
     {
         nombre: "Veneno Mata Cucarachas <br> 10 Unidad",
-        categoria: "Hogar",
+        categoria: "🏠Hogar",
         descripcion: "Veneno especializado para eliminar cucarachas de manera efectiva y segura. <br><br> 19 unidad de $500",
         precio: "500",
         codigo: "6948926230153",
@@ -333,7 +333,7 @@ const productos = [
     },
     {
         nombre: "Soporte televicion 26-55 pulgadas",
-        categoria: "Hogar",
+        categoria: ["🏠Hogar", "🪙Destacados"],
         descripcion: "Soporte para televisores de 26 a 55 pulgadas, ideal para montar tu TV en la pared y ahorrar espacio.",
         precio: "350",
         codigo: "MR-53",
@@ -341,7 +341,7 @@ const productos = [
     },
     {
         nombre: "ZAPATILLA DE 4 TOMAS 220V FULL 2 X USB, 3 METROS",
-        categoria: "Hogar",
+        categoria: "🏠Hogar",
         descripcion: "Zapatilla eléctrica con 4 tomas de 220V y 2 puertos USB, con cable de 3 metros de longitud. Ideal para conectar múltiples dispositivos de manera segura.",
         precio: "450",
         codigo: "MR-54",
@@ -352,7 +352,7 @@ const productos = [
     },
     {
         nombre: "ZAPATILLA DE 4 TOMAS 220V FULL 2 X USB, 5 METROS",
-        categoria: "Hogar",
+        categoria: "🏠Hogar",
         descripcion: "Zapatilla eléctrica con 4 tomas de 220V y 2 puertos USB, con cable de 5 metros de longitud. Ideal para conectar múltiples dispositivos de manera segura.",
         precio: "550",
         codigo: "MR-55",
@@ -363,7 +363,7 @@ const productos = [
     },
     {
         nombre: "Auriculares inalambricos P47",
-        categoria: "Hogar",
+        categoria: "🏠Hogar",
         descripcion: "Auriculares inalámbricos modelo P47, con excelente calidad de sonido y comodidad para uso prolongado. <br><br> 1 unidad x 390. <br> 3 unidades x 1000.",
         precio: "390",
         codigo: "6989532512530",
@@ -376,7 +376,7 @@ const productos = [
     },
     {
         nombre: "Caja anzuelos de pesca",
-        categoria: "Pesca",
+        categoria: "🦈Pesca",
         descripcion: "Caja con anzuelos de pesca de diversos tamaños y tipos, ideal para organizar tu equipo de pesca.",
         precio: "100",
         codigo: "6974891400529",

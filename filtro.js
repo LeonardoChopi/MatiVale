@@ -26,10 +26,9 @@ function obtenerPreciosLimites() {
    ======================================== */
 
 function cargarCategorias() {
-    // Obtener categorías únicas de los productos
-    const categoriasUnicas = [...new Set(productos.map(prod => prod.categoria))];
-    
-    // Agregar opciones al select
+    const todasLasCategorias = productos.flatMap(prod => prod.categoria);
+    const categoriasUnicas = [...new Set(todasLasCategorias)];
+
     categoriasUnicas.forEach(categoria => {
         const option = document.createElement("option");
         option.value = categoria;
@@ -37,6 +36,8 @@ function cargarCategorias() {
         categoriaSelect.appendChild(option);
     });
 }
+
+
 
 /* ========================================
    ACTUALIZAR RANGO DE PRECIOS
@@ -83,7 +84,7 @@ function aplicarFiltros() {
         const precioProducto = parseInt(producto.precio);
         
         // Verificar si el producto cumple con los filtros
-        const cumpleCategoria = categoriaSeleccionada === "todos" || producto.categoria === categoriaSeleccionada;
+        const cumpleCategoria = categoriaSeleccionada === "todos" || producto.categoria.includes(categoriaSeleccionada);
         const cumplePrecio = precioProducto >= precioMinFinal && precioProducto <= precioMaxFinal;
         
         if (cumpleCategoria && cumplePrecio) {

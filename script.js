@@ -7,6 +7,7 @@ const imagenPorDefecto = "https://png.pngtree.com/png-clipart/20230703/original/
 
 const contenedor = document.getElementById("productos");
 
+
 /* ========================================
    GENERACIÓN DE TARJETAS DE PRODUCTOS
    ======================================== */
@@ -35,10 +36,11 @@ productos.forEach(prod => {
 
         card.innerHTML = `
             <div class="carousel">
-                ${prod.imagenes.map((img, i) => `
-                    <img src="${img}" 
-                         class="card-image carousel-img ${i === 0 ? 'active' : ''}">
-                `).join("")}
+                <a href="descripcion.html?codigo=${prod.codigo}">
+                    ${prod.imagenes.map((img, i) => `
+                        <img src="${img}" class="card-image carousel-img ${i === 0 ? 'active' : ''}">
+                    `).join("")}
+                </a>
                 <button class="prev">‹</button>
                 <button class="next">›</button>
             </div>
@@ -101,9 +103,9 @@ productos.forEach(prod => {
            ======================================== */
 
         card.innerHTML = `
-            <img src="${prod.imagenes[0]}" 
-                 alt="${prod.nombre}" 
-                 class="card-image">
+            <a href="descripcion.html?codigo=${prod.codigo}">
+                <img src="${prod.imagenes[0]}" alt="${prod.nombre}" class="card-image">
+            </a>
             <div class="card-content">
                 <h3>${prod.nombre}</h3>
                 <span class="precio">$${prod.precio}</span>
