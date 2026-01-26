@@ -1014,6 +1014,11 @@ body {
 
 /* Seccion para crear productos */
 
+.prod{
+    display: flex;
+    flex-direction: column;
+}
+
 .crear {
     display: flex;
     justify-content: center;
@@ -1087,7 +1092,7 @@ body {
     padding: 30px;
     border-radius: 18px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    width: 48%;
+    width: 100%;
     min-height: 150px;
 }
 
@@ -1131,6 +1136,89 @@ body {
 #agregarImagen:active {
     transform: scale(0.97);
 }
+
+.copiar{
+    margin-top: 50px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* CONTENEDOR GENERAL */
+.acumularproductos {
+    width: 95%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* TÍTULO */
+.acumularproductos h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* CONTENEDOR DE TABLA (scroll si es muy grande) */
+.acumularproductos table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ENCABEZADO */
+.acumularproductos thead {
+    background: #2c3e50;
+    color: white;
+}
+
+.acumularproductos thead th {
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* FILAS */
+.acumularproductos tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s ease;
+}
+
+.acumularproductos tbody tr:hover {
+    background: #f2f6fa;
+}
+
+/* CELDAS */
+.acumularproductos tbody td {
+    padding: 12px;
+    font-size: 14px;
+    color: #444;
+    vertical-align: middle;
+}
+
+/* IMÁGENES DENTRO DE LA TABLA */
+.acumularproductos tbody td img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* SCROLL RESPONSIVE */
+.acumularproductos > div {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
 
 
 

@@ -45,6 +45,7 @@
         <input type="submit" value="Crear Producto">
     </form>
 
+    <div class="prod">
         <div class="devolverproducto">
             <h1>
                 Producto creado
@@ -52,9 +53,37 @@
             <p>
 
             </p>
+            <div class="copiar">
+                    <button class="btn-agregar-carrito" id="copiarFragmento">Copiar fragmento</button>
+                    <button class="btn-mas-info" id="copiarTodo">Copiar codigo entero</button>
+                    <button class="btn-agregar-carrito" id="acumular" >Acumular producto</button>
+            </div>
         </div>
+        <div class="acumularproductos">
+            <h1>Productos acumulados</h1>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Código</th>
+                            <th>Categorías</th>
+                            <th>Imágenes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaProductosAcumulados">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     </section>
 
+    <script src="../productos.js"></script>
     <script src="crear.js"></script>
+    <script src="copiar.js"></script>
+
 </body>
 </html>
