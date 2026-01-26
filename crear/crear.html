@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatiVale</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../img/Pagina/Favicon.png" type="image/x-icon">
+    <meta name="description" content="Somos Mativale, de la ciudad de Mercedes, Soriano. Estamos los sábados en Plaza Rivera y los domingos en Plaza Lavalleja, con productos para vos.">
+    <link rel="stylesheet" href="../Style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../Index.html">
+                <img src="../img/Pagina/LogoNombreTrans.png" alt="Logo">
+            </a>
+        </div>
+    </nav>
+    <section class="crear">
+    <form id="formProducto">
+        <input type="text" id="nombre" placeholder="Nombre del producto" required>
+
+        <div>
+            <label>Categorias</label>
+            <div id="contenedorCategorias">
+                <input type="text" class="categoriaInput" placeholder="Categoria">
+            </div>
+            <button type="button" id="agregarCategoria">+ Categoria</button>
+        </div>
+
+        <input type="text" id="descripcion" placeholder="Descripción" required>
+        <input type="number" id="precio" placeholder="Precio" required>
+        <input type="text" id="codigo" placeholder="Codigo" required>
+
+        <div>
+            <label>Imágenes</label>
+            <div id="contenedorImagenes">
+                <input type="text" class="imagenInput" placeholder="URL imagen">
+            </div>
+            <button type="button" id="agregarImagen">+ Imagen</button>
+        </div>
+
+        <input type="submit" value="Crear Producto">
+    </form>
+
+        <div class="devolverproducto">
+            <h1>
+                Producto creado
+            </h1>
+            <p>
+
+            </p>
+        </div>
+    </section>
+
+    <script src="crear.js"></script>
+</body>
+</html>

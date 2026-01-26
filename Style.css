@@ -1012,6 +1012,130 @@ body {
 }
 
 
+/* Seccion para crear productos */
+
+.crear {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+/* TARJETA FORM */
+.crear form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Inputs */
+.crear form input[type="text"],
+.crear form input[type="number"] {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.crear form input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+/* Checkbox */
+.crear form label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.crear form input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4CAF50;
+}
+
+/* Botón */
+.crear form input[type="submit"] {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.crear form input[type="submit"]:hover {
+    background: #43a047;
+    transform: translateY(-2px);
+}
+
+/* TARJETA PRODUCTO CREADO */
+.devolverproducto {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 48%;
+    min-height: 150px;
+}
+
+.devolverproducto h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.devolverproducto p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Botones agregar */
+#agregarCategoria,
+#agregarImagen {
+    margin-top: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px dashed #4CAF50;
+    background: #f8fff8;
+    color: #4CAF50;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+#agregarCategoria:hover,
+#agregarImagen:hover {
+    background: #4CAF50;
+    color: white;
+    border-style: solid;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(76, 175, 80, 0.25);
+}
+
+/* Active (cuando lo clickeas) */
+#agregarCategoria:active,
+#agregarImagen:active {
+    transform: scale(0.97);
+}
+
+
+
+
+
 /* ========================================
    15 - DISEÑO RESPONSIVO (TABLETS Y MÓVILES)
    ======================================== */
