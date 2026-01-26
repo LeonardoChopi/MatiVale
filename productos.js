@@ -124,7 +124,10 @@ const productos = [
     },
     {
         nombre: "Linterna con picana",
-        categoria: ["🦈Pesca" , "🔦Linterna"],
+        categoria: [
+            "🦈Pesca",
+            "🔦Linterna"
+        ],
         descripcion: "Linterna con picana práctica para actividades al aire libre y pesca nocturna.",
         precio: "490",
         codigo: "1101",
@@ -132,7 +135,10 @@ const productos = [
     },
     {
         nombre: "Linterna farol",
-        categoria: ["🦈Pesca" , "🔦Linterna"],
+        categoria: [
+            "🦈Pesca",
+            "🔦Linterna"
+        ],
         descripcion: "Linterna farol ideal para iluminar zonas de pesca o campamento.",
         precio: "350",
         codigo: "2835",
@@ -140,7 +146,10 @@ const productos = [
     },
     {
         nombre: "Linterna farol con pie",
-        categoria: ["🦈Pesca" , "🔦Linterna"],
+        categoria: [
+            "🦈Pesca",
+            "🔦Linterna"
+        ],
         descripcion: "Linterna farol con pie estable, perfecta para usar en exteriores.",
         precio: "560",
         codigo: "6974758868417",
@@ -148,7 +157,10 @@ const productos = [
     },
     {
         nombre: "Linterna farol pie",
-        categoria: ["🦈Pesca" , "🔦Linterna"],
+        categoria: [
+            "🦈Pesca",
+            "🔦Linterna"
+        ],
         descripcion: "Linterna farol pie resistente y funcional para actividades nocturnas.",
         precio: "395",
         codigo: "1256558886071",
@@ -156,7 +168,10 @@ const productos = [
     },
     {
         nombre: "Linterna farol recargable solar",
-        categoria: ["🦈Pesca" , "🔦Linterna"],
+        categoria: [
+            "🦈Pesca",
+            "🔦Linterna"
+        ],
         descripcion: "Linterna farol recargable solar, ideal para pesca y uso al aire libre.",
         precio: "380",
         codigo: "SH-5800T",
@@ -274,7 +289,6 @@ const productos = [
         codigo: "7403",
         imagen: "https://i5.walmartimages.com/asr/2dffa610-d866-4b23-843f-1753caf241e3.1ad944824d740c713050f4abbf6fecde.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
     },
-
     {
         nombre: "Luz Punta Caña de Pesca",
         categoria: "🦈Pesca",
@@ -333,7 +347,10 @@ const productos = [
     },
     {
         nombre: "Soporte televicion 26-55 pulgadas",
-        categoria: ["🏠Hogar", "🪙Destacados"],
+        categoria: [
+            "🏠Hogar",
+            "🪙Destacados"
+        ],
         descripcion: "Soporte para televisores de 26 a 55 pulgadas, ideal para montar tu TV en la pared y ahorrar espacio.",
         precio: "350",
         codigo: "MR-53",
@@ -346,9 +363,9 @@ const productos = [
         precio: "450",
         codigo: "MR-54",
         imagenes: [
-                "https://www.mink.com.ar/qloud/ryr/fotos/25801-0.jpg",
-                "https://http2.mlstatic.com/D_NQ_NP_2X_651131-MLU91797606460_092025-T.webp"
-            ]
+            "https://www.mink.com.ar/qloud/ryr/fotos/25801-0.jpg",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_651131-MLU91797606460_092025-T.webp"
+        ]
     },
     {
         nombre: "ZAPATILLA DE 4 TOMAS 220V FULL 2 X USB, 5 METROS",
@@ -357,9 +374,9 @@ const productos = [
         precio: "550",
         codigo: "MR-55",
         imagenes: [
-                "https://www.mink.com.ar/qloud/ryr/fotos/25801-0.jpg",
-                "https://http2.mlstatic.com/D_NQ_NP_2X_651131-MLU91797606460_092025-T.webp"
-            ]
+            "https://www.mink.com.ar/qloud/ryr/fotos/25801-0.jpg",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_651131-MLU91797606460_092025-T.webp"
+        ]
     },
     {
         nombre: "Auriculares inalambricos P47",
@@ -368,11 +385,11 @@ const productos = [
         precio: "390",
         codigo: "6989532512530",
         imagenes: [
-                "https://clickbj.uy/wp-content/uploads/2022/10/p471-3807efba6cdd8e9bd515944882714019-1024-1024-2.jpg",
-                "https://http2.mlstatic.com/D_NQ_NP_766614-MLU77724549717_072024-O.webp",
-                "https://fonomania.com.uy/wp-content/uploads/2023/06/D_NQ_NP_692692-MLU48875854898_012022-O.webp",
-                "https://de2kqc9pq55cj.cloudfront.net/_img_productos/auricular-p47-rojo-foto1.jpg"
-            ] 
+            "https://clickbj.uy/wp-content/uploads/2022/10/p471-3807efba6cdd8e9bd515944882714019-1024-1024-2.jpg",
+            "https://http2.mlstatic.com/D_NQ_NP_766614-MLU77724549717_072024-O.webp",
+            "https://fonomania.com.uy/wp-content/uploads/2023/06/D_NQ_NP_692692-MLU48875854898_012022-O.webp",
+            "https://de2kqc9pq55cj.cloudfront.net/_img_productos/auricular-p47-rojo-foto1.jpg"
+        ]
     },
     {
         nombre: "Caja anzuelos de pesca",
@@ -386,4 +403,4 @@ const productos = [
             "https://ae-pic-a1.aliexpress-media.com/kf/Sc990132eb1414d18a8fd122aaa3770f2H.jpg"
         ]
     }
-    ];
+];

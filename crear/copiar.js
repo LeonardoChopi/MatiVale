@@ -2,49 +2,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const btnCopiarFragmento = document.getElementById("copiarFragmento");
     const btnCopiarTodo = document.getElementById("copiarTodo");
+    const btnCopiarTabla = document.getElementById("copiarTodotabla");
+
     const resultado = document.querySelector(".devolverproducto p");
 
-    // Función para convertir JSON a formato JS sin comillas en claves
+    // ==============================
+    // UTILIDAD: convertir a JS sin comillas en atributos
+    // ==============================
+
     function convertirAFormatoJS(obj) {
         return JSON.stringify(obj, null, 4)
             .replace(/"([^"]+)":/g, '$1:');
     }
 
+    function copiarAlPortapapeles(texto, mensaje) {
+        navigator.clipboard.writeText(texto)
+            .then(() => alert(mensaje))
+            .catch(() => alert("Error al copiar."));
+    }
+
     // ==============================
-    // COPIAR SOLO FRAGMENTO
+    // 1️⃣ COPIAR SOLO FRAGMENTO
     // ==============================
 
-    btnCopiarFragmento.addEventListener("click", async function() {
+    btnCopiarFragmento.addEventListener("click", function() {
 
-        const texto = resultado.innerText.trim();
-
-        if (!texto) {
-            alert("No hay producto generado.");
+        if (!window.productoActual) {
+            alert("No hay producto creado.");
             return;
         }
 
-        try {
-            const objeto = JSON.parse(texto);
-            const formateado = convertirAFormatoJS(objeto);
+        const formateado = convertirAFormatoJS(window.productoActual);
 
-            await navigator.clipboard.writeText(formateado);
-            alert("Fragmento copiado ✅");
-
-        } catch (error) {
-            alert("Error al procesar el producto.");
-        }
+        copiarAlPortapapeles(formateado, "Fragmento copiado ✅");
     });
 
     // ==============================
-    // COPIAR TODO productos.js + nuevo producto
+    // 2️⃣ COPIAR TODO productos.js + producto actual
     // ==============================
 
-    btnCopiarTodo.addEventListener("click", async function() {
+    btnCopiarTodo.addEventListener("click", function() {
 
-        const texto = resultado.innerText.trim();
-
-        if (!texto) {
-            alert("No hay producto generado.");
+        if (!window.productoActual) {
+            alert("No hay producto creado.");
             return;
         }
 
@@ -53,24 +53,29 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        try {
+        const nuevoArray = [...productos, window.productoActual];
 
-            const nuevoProducto = JSON.parse(texto);
-
-            const nuevoArray = [...productos, nuevoProducto];
-
-            const codigoCompleto =
+        const codigoCompleto =
 `const productos = ${convertirAFormatoJS(nuevoArray)};`;
 
-            await navigator.clipboard.writeText(codigoCompleto);
+        copiarAlPortapapeles(codigoCompleto, "Código completo copiado ✅");
+    });
 
-            alert("Código completo copiado con nuevo producto ✅");
+    // ==============================
+    // 3️⃣ COPIAR TODOS LOS ACUMULADOS
+    // ==============================
 
-        } catch (error) {
-            alert("Error al procesar el producto.");
-            console.error(error);
+    btnCopiarTabla.addEventListener("click", function() {
+
+        if (!window.productosAcumulados || window.productosAcumulados.length === 0) {
+            alert("No hay productos acumulados.");
+            return;
         }
 
+        const codigoCompleto =
+`const productos = ${convertirAFormatoJS(window.productosAcumulados)};`;
+
+        copiarAlPortapapeles(codigoCompleto, "Productos acumulados copiados ✅");
     });
 
 });

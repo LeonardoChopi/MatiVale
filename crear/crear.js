@@ -1,90 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    const form = document.getElementById("formProducto");
     const resultado = document.querySelector(".devolverproducto p");
+    const btnCrear = document.getElementById("crearproducto");
 
-    const contenedorCategorias = document.getElementById("contenedorCategorias");
-    const contenedorImagenes = document.getElementById("contenedorImagenes");
+    window.productoActual = null; // producto disponible globalmente
 
-    const btnAgregarCategoria = document.getElementById("agregarCategoria");
-    const btnAgregarImagen = document.getElementById("agregarImagen");
-
-    // ==============================
-    // AUTOCOMPLETAR CATEGORIAS
-    // ==============================
-
-    const datalist = document.createElement("datalist");
-    datalist.id = "listaCategorias";
-    document.body.appendChild(datalist);
-
-    let categoriasExistentes = [];
-
-    if (typeof productos !== "undefined") {
-
-        productos.forEach(prod => {
-
-            if (Array.isArray(prod.categoria)) {
-                prod.categoria.forEach(cat => categoriasExistentes.push(cat));
-            } else if (prod.categoria) {
-                categoriasExistentes.push(prod.categoria);
-            }
-
-        });
-
-        // Eliminar duplicados
-        categoriasExistentes = [...new Set(categoriasExistentes)];
-
-        categoriasExistentes.forEach(cat => {
-            const option = document.createElement("option");
-            option.value = cat;
-            datalist.appendChild(option);
-        });
-    }
-
-    // Agregar datalist al primer input
-    const primerInputCategoria = document.querySelector(".categoriaInput");
-    if (primerInputCategoria) {
-        primerInputCategoria.setAttribute("list", "listaCategorias");
-    }
-
-    // ==============================
-    // AGREGAR CATEGORIA
-    // ==============================
-
-    btnAgregarCategoria.addEventListener("click", () => {
-        const input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = "Categoria";
-        input.classList.add("categoriaInput");
-        input.setAttribute("list", "listaCategorias");
-        contenedorCategorias.appendChild(input);
-    });
-
-    // ==============================
-    // AGREGAR IMAGEN
-    // ==============================
-
-    btnAgregarImagen.addEventListener("click", () => {
-        const input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = "URL imagen";
-        input.classList.add("imagenInput");
-        contenedorImagenes.appendChild(input);
-    });
-
-    // ==============================
-    // SUBMIT
-    // ==============================
-
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
+    function obtenerProductoDesdeFormulario() {
 
         const nombre = document.getElementById("nombre").value.trim();
         const descripcion = document.getElementById("descripcion").value.trim();
         const precio = document.getElementById("precio").value.trim();
         const codigo = document.getElementById("codigo").value.trim();
 
-        // ===== CATEGORIAS =====
+        // Categorías
         const categoriasInputs = document.querySelectorAll(".categoriaInput");
         let categorias = [];
 
@@ -94,14 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        let categoriaFinal;
-        if (categorias.length > 1) {
-            categoriaFinal = categorias;
-        } else {
-            categoriaFinal = categorias[0] || "";
-        }
+        let categoriaFinal = categorias.length > 1 ? categorias : categorias[0] || "";
 
-        // ===== IMAGENES =====
+        // Imágenes
         const imagenesInputs = document.querySelectorAll(".imagenInput");
         let imagenes = [];
 
@@ -133,7 +56,18 @@ document.addEventListener("DOMContentLoaded", function() {
             };
         }
 
-        resultado.innerHTML = `<pre>${JSON.stringify(producto, null, 4)}</pre>`;
+        return producto;
+    }
+
+    btnCrear.addEventListener("click", function() {
+
+        const producto = obtenerProductoDesdeFormulario();
+
+        window.productoActual = producto;
+
+        resultado.innerHTML =
+            `<pre>${JSON.stringify(producto, null, 4)
+                .replace(/"([^"]+)":/g, '$1:')}</pre>`;
     });
 
 });

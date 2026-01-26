@@ -8,6 +8,8 @@ const precioMin = document.getElementById("precioMin");
 const precioMax = document.getElementById("precioMax");
 const precioMinValor = document.getElementById("precioMinValor");
 const precioMaxValor = document.getElementById("precioMaxValor");
+const habilitarMinimo = document.getElementById("habilitarminimo");
+const habilitarMaximo = document.getElementById("habilitarmaximo");
 
 /* ========================================
    OBTENER PRECIOS MÍNIMO Y MÁXIMO
@@ -37,8 +39,6 @@ function cargarCategorias() {
     });
 }
 
-
-
 /* ========================================
    ACTUALIZAR RANGO DE PRECIOS
    ======================================== */
@@ -46,7 +46,6 @@ function cargarCategorias() {
 function actualizarRangoPrecio() {
     const limites = obtenerPreciosLimites();
     
-    // Configurar los límites de los inputs
     precioMin.min = limites.minimo;
     precioMin.max = limites.maximo;
     precioMin.value = limites.minimo;
@@ -55,7 +54,6 @@ function actualizarRangoPrecio() {
     precioMax.max = limites.maximo;
     precioMax.value = limites.maximo;
     
-    // Actualizar los valores mostrados
     precioMinValor.textContent = `$${limites.minimo}`;
     precioMaxValor.textContent = `$${limites.maximo}`;
 }
@@ -66,27 +64,30 @@ function actualizarRangoPrecio() {
 
 function aplicarFiltros() {
     const categoriaSeleccionada = categoriaSelect.value;
-    const precioMinimo = parseInt(precioMin.value);
-    const precioMaximo = parseInt(precioMax.value);
+    const minimoActivo = habilitarMinimo.checked;
+    const maximoActivo = habilitarMaximo.checked;
+
     const cards = document.querySelectorAll(".card");
     let productosVisibles = 0;
-    
-    // Asegurar que el precio mínimo no sea mayor que el máximo
-    if (precioMinimo > precioMaximo) {
-        precioMin.value = precioMaximo;
-    }
-    
-    const precioMinFinal = parseInt(precioMin.value);
-    const precioMaxFinal = parseInt(precioMax.value);
-    
+
     cards.forEach((card, index) => {
         const producto = productos[index];
         const precioProducto = parseInt(producto.precio);
-        
-        // Verificar si el producto cumple con los filtros
-        const cumpleCategoria = categoriaSeleccionada === "todos" || producto.categoria.includes(categoriaSeleccionada);
-        const cumplePrecio = precioProducto >= precioMinFinal && precioProducto <= precioMaxFinal;
-        
+
+        const cumpleCategoria =
+            categoriaSeleccionada === "todos" ||
+            producto.categoria.includes(categoriaSeleccionada);
+
+        let cumplePrecio = true;
+
+        if (minimoActivo && precioProducto < parseInt(precioMin.value)) {
+            cumplePrecio = false;
+        }
+
+        if (maximoActivo && precioProducto > parseInt(precioMax.value)) {
+            cumplePrecio = false;
+        }
+
         if (cumpleCategoria && cumplePrecio) {
             card.style.display = "";
             productosVisibles++;
@@ -94,17 +95,18 @@ function aplicarFiltros() {
             card.style.display = "none";
         }
     });
-    
+
     // Mostrar mensaje si no hay productos
     const contenedor = document.getElementById("productos");
     let mensajeVacio = document.getElementById("mensajeVacio");
-    
+
     if (productosVisibles === 0) {
         if (!mensajeVacio) {
             mensajeVacio = document.createElement("div");
             mensajeVacio.id = "mensajeVacio";
             mensajeVacio.classList.add("mensaje-vacio");
-            mensajeVacio.textContent = "No hay productos que coincidan con los filtros seleccionados";
+            mensajeVacio.textContent =
+                "No hay productos que coincidan con los filtros seleccionados";
             contenedor.appendChild(mensajeVacio);
         }
         mensajeVacio.style.display = "";
@@ -116,32 +118,48 @@ function aplicarFiltros() {
 }
 
 /* ========================================
-   EVENT LISTENERS DE FILTROS
+   EVENT LISTENERS
    ======================================== */
 
-// Filtro de categoría
+// Categoría
 if (categoriaSelect) {
-    categoriaSelect.addEventListener("change", function() {
-        aplicarFiltros();
-    });
+    categoriaSelect.addEventListener("change", aplicarFiltros);
 }
 
-// Filtro de precio mínimo
+// Precio mínimo
 if (precioMin) {
     precioMin.addEventListener("input", function() {
-        const valorMin = parseInt(this.value);
-        precioMinValor.textContent = `$${valorMin}`;
+        precioMinValor.textContent = `$${this.value}`;
         aplicarFiltros();
     });
 }
 
-// Filtro de precio máximo
+// Precio máximo
 if (precioMax) {
     precioMax.addEventListener("input", function() {
-        const valorMax = parseInt(this.value);
-        precioMaxValor.textContent = `$${valorMax}`;
+        precioMaxValor.textContent = `$${this.value}`;
         aplicarFiltros();
     });
+}
+
+// Habilitar mínimo
+if (habilitarMinimo) {
+    habilitarMinimo.addEventListener("change", function() {
+        precioMin.disabled = !this.checked;
+        aplicarFiltros();
+    });
+
+    precioMin.disabled = !habilitarMinimo.checked;
+}
+
+// Habilitar máximo
+if (habilitarMaximo) {
+    habilitarMaximo.addEventListener("change", function() {
+        precioMax.disabled = !this.checked;
+        aplicarFiltros();
+    });
+
+    precioMax.disabled = !habilitarMaximo.checked;
 }
 
 /* ========================================

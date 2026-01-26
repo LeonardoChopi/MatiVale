@@ -33,12 +33,21 @@
             </select>
         </div>
         <div class="filtro-grupo">
-            <label for="precioMin">Precio Mínimo: <span id="precioMinValor">$0</span></label>
+            <div class="habilitar">
+                <label for="precioMin">Precio Mínimo: <span id="precioMinValor">$0</span></label>
+                <input type="checkbox" name="habilitarminimo" id="habilitarminimo" class="habilitarminimo" title="Habilitar mínimo">
+                <p class="habilitarcel">Habilitar mínimo</p>
+            </div>
             <input type="range" class="Rango-Precio" id="precioMin" min="0" max="2000" value="0">
         </div>
         <div class="filtro-grupo">
-            <label for="precioMax">Precio Máximo: <span id="precioMaxValor">$2000</span></label>
-            <input type="range" class="Rango-Precio" id="precioMax" min="0" max="2000" value="2000">
+            <div class="habilitar">
+                <label for="precioMax">Precio Máximo: <span id="precioMaxValor">$2000</span></label>
+                <input type="checkbox" name="habilitarmaximo" id="habilitarmaximo" class="habilitarminimo" title="Habilitar máximo">
+                <p class="habilitarcel">Habilitar máximo</p>
+            </div>
+                <input type="range" class="Rango-Precio" id="precioMax" min="0" max="2000" value="2000">
+
         </div>
     </section>
 

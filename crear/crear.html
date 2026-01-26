@@ -41,8 +41,10 @@
             </div>
             <button type="button" id="agregarImagen">+ Imagen</button>
         </div>
-
-        <input type="submit" value="Crear Producto">
+        <div class="enviarproducto">
+            <button type="button" id="crearproducto">Crear Producto</button>
+            <button type="button" id="acumularProducto">Acumular Producto</button>
+        </div>
     </form>
 
     <div class="prod">
@@ -56,7 +58,6 @@
             <div class="copiar">
                     <button class="btn-agregar-carrito" id="copiarFragmento">Copiar fragmento</button>
                     <button class="btn-mas-info" id="copiarTodo">Copiar codigo entero</button>
-                    <button class="btn-agregar-carrito" id="acumular" >Acumular producto</button>
             </div>
         </div>
         <div class="acumularproductos">
@@ -76,6 +77,9 @@
                     <tbody id="tablaProductosAcumulados">
                     </tbody>
                 </table>
+            <div class="copiar">
+                    <button class="btn-mas-info" id="copiarTodotabla">Copiar codigo entero</button>
+            </div>
             </div>
         </div>
     </div>
@@ -83,6 +87,7 @@
 
     <script src="../productos.js"></script>
     <script src="crear.js"></script>
+    <script src="acumular.js"></script>
     <script src="copiar.js"></script>
 
 </body>

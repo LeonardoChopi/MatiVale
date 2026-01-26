@@ -169,6 +169,24 @@ body {
     border: none;
 }
 
+.habilitar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+
+.habilitar p{
+    display: none;
+}
+
+.habilitarminimo {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
 .buscador {
     display: flex;
     gap: 10px;
@@ -1029,6 +1047,16 @@ body {
 }
 
 /* TARJETA FORM */
+
+.enviarproducto{
+    display: flex;
+    gap: 10px;
+}
+
+.enviarproducto input[type="submit"] {
+    width: 500px;
+}
+
 .crear form {
     background: #ffffff;
     padding: 30px;
@@ -1057,34 +1085,55 @@ body {
 }
 
 /* Checkbox */
-.crear form label {
-    font-size: 14px;
-    font-weight: 500;
+.enviarproducto {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.crear form input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #4CAF50;
-}
-
-/* Botón */
-.crear form input[type="submit"] {
-    margin-top: 10px;
-    padding: 12px;
+/* Botón base */
+.enviarproducto button {
+    flex: 1;
+    padding: 12px 18px;
     border-radius: 12px;
     border: none;
-    background: #4CAF50;
-    color: white;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: all 0.2s ease;
 }
 
-.crear form input[type="submit"]:hover {
+/* Crear Producto (principal) */
+#crearproducto {
+    background: #4CAF50;
+    color: white;
+}
+
+#crearproducto:hover {
     background: #43a047;
     transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(76, 175, 80, 0.25);
 }
+
+/* Acumular Producto (secundario) */
+#acumularProducto {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+#acumularProducto:hover {
+    background: #e6e6e6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.enviarproducto button:active {
+    transform: scale(0.97);
+}
+
 
 /* TARJETA PRODUCTO CREADO */
 .devolverproducto {
@@ -1146,8 +1195,9 @@ body {
 
 /* CONTENEDOR GENERAL */
 .acumularproductos {
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
+    max-height: 800px;
     margin: 40px auto;
     padding: 25px;
     background: #f9f9f9;
@@ -1246,6 +1296,10 @@ body {
 
 @media (max-width: 768px) {
     
+    .habilitar p{
+    display: block;
+    }
+
     .description {
         padding: 20px;
         margin: 15px 10px;
