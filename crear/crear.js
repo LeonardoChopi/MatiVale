@@ -3,7 +3,46 @@ document.addEventListener("DOMContentLoaded", function() {
     const resultado = document.querySelector(".devolverproducto p");
     const btnCrear = document.getElementById("crearproducto");
 
-    window.productoActual = null; // producto disponible globalmente
+    const btnAgregarCategoria = document.getElementById("agregarCategoria");
+    const contenedorCategorias = document.getElementById("contenedorCategorias");
+
+    const btnAgregarImagen = document.getElementById("agregarImagen");
+    const contenedorImagenes = document.getElementById("contenedorImagenes");
+
+    // Producto disponible globalmente
+    window.productoActual = null;
+
+    // ==============================
+    // AGREGAR CATEGORIA
+    // ==============================
+
+    btnAgregarCategoria.addEventListener("click", function() {
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = "Categoria";
+        input.classList.add("categoriaInput");
+
+        contenedorCategorias.appendChild(input);
+    });
+
+    // ==============================
+    // AGREGAR IMAGEN
+    // ==============================
+
+    btnAgregarImagen.addEventListener("click", function() {
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = "URL imagen";
+        input.classList.add("imagenInput");
+
+        contenedorImagenes.appendChild(input);
+    });
+
+    // ==============================
+    // OBTENER PRODUCTO DESDE FORM
+    // ==============================
 
     function obtenerProductoDesdeFormulario() {
 
@@ -12,7 +51,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const precio = document.getElementById("precio").value.trim();
         const codigo = document.getElementById("codigo").value.trim();
 
-        // Categorías
+        if (!nombre || !precio || !codigo) {
+            alert("Completa al menos nombre, precio y código.");
+            return null;
+        }
+
+        // ===== Categorías =====
         const categoriasInputs = document.querySelectorAll(".categoriaInput");
         let categorias = [];
 
@@ -22,9 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        let categoriaFinal = categorias.length > 1 ? categorias : categorias[0] || "";
+        let categoriaFinal =
+            categorias.length > 1 ? categorias : categorias[0] || "";
 
-        // Imágenes
+        // ===== Imágenes =====
         const imagenesInputs = document.querySelectorAll(".imagenInput");
         let imagenes = [];
 
@@ -59,9 +104,14 @@ document.addEventListener("DOMContentLoaded", function() {
         return producto;
     }
 
+    // ==============================
+    // CREAR PRODUCTO (mostrar en pantalla)
+    // ==============================
+
     btnCrear.addEventListener("click", function() {
 
         const producto = obtenerProductoDesdeFormulario();
+        if (!producto) return;
 
         window.productoActual = producto;
 

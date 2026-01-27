@@ -2,12 +2,74 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const btnCopiarFragmento = document.getElementById("copiarFragmento");
     const btnCopiarTodo = document.getElementById("copiarTodo");
-    const btnCopiarTabla = document.getElementById("copiarTodotabla");
-
-    const resultado = document.querySelector(".devolverproducto p");
+    const btnCopiarTabla = document.getElementById("copiarFragmentotablatabla");
 
     // ==============================
-    // UTILIDAD: convertir a JS sin comillas en atributos
+    // FUNCION: Obtener producto desde el formulario
+    // ==============================
+
+    function obtenerProductoDesdeFormulario() {
+
+        const nombre = document.getElementById("nombre")?.value.trim();
+        const descripcion = document.getElementById("descripcion")?.value.trim();
+        const precio = document.getElementById("precio")?.value.trim();
+        const codigo = document.getElementById("codigo")?.value.trim();
+
+        if (!nombre || !precio || !codigo) {
+            alert("Completa al menos nombre, precio y código.");
+            return null;
+        }
+
+        // ===== Categorías =====
+        const categoriasInputs = document.querySelectorAll(".categoriaInput");
+        let categorias = [];
+
+        categoriasInputs.forEach(input => {
+            if (input.value.trim() !== "") {
+                categorias.push(input.value.trim());
+            }
+        });
+
+        let categoriaFinal =
+            categorias.length > 1 ? categorias : categorias[0] || "";
+
+        // ===== Imágenes =====
+        const imagenesInputs = document.querySelectorAll(".imagenInput");
+        let imagenes = [];
+
+        imagenesInputs.forEach(input => {
+            if (input.value.trim() !== "") {
+                imagenes.push(input.value.trim());
+            }
+        });
+
+        let producto;
+
+        if (imagenes.length > 1) {
+            producto = {
+                nombre,
+                categoria: categoriaFinal,
+                descripcion,
+                precio,
+                codigo,
+                imagenes
+            };
+        } else {
+            producto = {
+                nombre,
+                categoria: categoriaFinal,
+                descripcion,
+                precio,
+                codigo,
+                imagen: imagenes[0] || ""
+            };
+        }
+
+        return producto;
+    }
+
+    // ==============================
+    // Convertir a formato JS (sin comillas en claves)
     // ==============================
 
     function convertirAFormatoJS(obj) {
@@ -15,67 +77,73 @@ document.addEventListener("DOMContentLoaded", function() {
             .replace(/"([^"]+)":/g, '$1:');
     }
 
-    function copiarAlPortapapeles(texto, mensaje) {
-        navigator.clipboard.writeText(texto)
-            .then(() => alert(mensaje))
-            .catch(() => alert("Error al copiar."));
-    }
-
     // ==============================
-    // 1️⃣ COPIAR SOLO FRAGMENTO
+    // COPIAR FRAGMENTO OBJETO
     // ==============================
 
-    btnCopiarFragmento.addEventListener("click", function() {
+    btnCopiarFragmento?.addEventListener("click", async function() {
 
-        if (!window.productoActual) {
-            alert("No hay producto creado.");
-            return;
-        }
+        const producto = obtenerProductoDesdeFormulario();
+        if (!producto) return;
 
-        const formateado = convertirAFormatoJS(window.productoActual);
+        const texto = convertirAFormatoJS(producto);
 
-        copiarAlPortapapeles(formateado, "Fragmento copiado ✅");
+        await navigator.clipboard.writeText(texto);
+        alert("Fragmento copiado ✅");
     });
 
     // ==============================
-    // 2️⃣ COPIAR TODO productos.js + producto actual
+    // COPIAR TODO productos.js + nuevo producto
     // ==============================
 
-    btnCopiarTodo.addEventListener("click", function() {
+    btnCopiarTodo?.addEventListener("click", async function() {
 
-        if (!window.productoActual) {
-            alert("No hay producto creado.");
-            return;
-        }
+        const producto = obtenerProductoDesdeFormulario();
+        if (!producto) return;
 
         if (typeof productos === "undefined") {
             alert("No se encontró el array productos.");
             return;
         }
 
-        const nuevoArray = [...productos, window.productoActual];
+        const nuevoArray = [...productos, producto];
 
         const codigoCompleto =
 `const productos = ${convertirAFormatoJS(nuevoArray)};`;
 
-        copiarAlPortapapeles(codigoCompleto, "Código completo copiado ✅");
+        await navigator.clipboard.writeText(codigoCompleto);
+
+        alert("Código completo copiado con nuevo producto ✅");
     });
 
     // ==============================
-    // 3️⃣ COPIAR TODOS LOS ACUMULADOS
+    // COPIAR FRAGMENTO FORMATO TABLA
     // ==============================
 
-    btnCopiarTabla.addEventListener("click", function() {
+    btnCopiarTabla?.addEventListener("click", async function() {
 
-        if (!window.productosAcumulados || window.productosAcumulados.length === 0) {
-            alert("No hay productos acumulados.");
-            return;
+        const producto = obtenerProductoDesdeFormulario();
+        if (!producto) return;
+
+        let categoriasTexto = "";
+
+        if (Array.isArray(producto.categoria)) {
+            categoriasTexto = producto.categoria.join(", ");
+        } else {
+            categoriasTexto = producto.categoria || "";
         }
 
-        const codigoCompleto =
-`const productos = ${convertirAFormatoJS(window.productosAcumulados)};`;
+        const filaTabla =
+`<tr>
+    <td>${producto.nombre}</td>
+    <td>${categoriasTexto}</td>
+    <td>${producto.precio}</td>
+    <td>${producto.codigo}</td>
+</tr>`;
 
-        copiarAlPortapapeles(codigoCompleto, "Productos acumulados copiados ✅");
+        await navigator.clipboard.writeText(filaTabla);
+
+        alert("Fragmento de tabla copiado ✅");
     });
 
 });

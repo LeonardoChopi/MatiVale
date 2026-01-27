@@ -3,7 +3,7 @@
    ======================================== */
 
 const inputBuscador = document.getElementById("inputBuscador");
-const imagenPorDefecto = "https://png.pngtree.com/png-clipart/20230703/original/pngtree-cardboard-boxes-png-image_9248461.png";
+const imagenPorDefecto = "https://static.vecteezy.com/system/resources/thumbnails/013/834/820/small/cartoon-cardbox-open-png.png";
 
 const contenedor = document.getElementById("productos");
 

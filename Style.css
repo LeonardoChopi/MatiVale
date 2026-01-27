@@ -1143,11 +1143,15 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     width: 100%;
     min-height: 150px;
+    height: 300px;
 }
 
 .devolverproducto h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
+text-align: center;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
 }
 
 .devolverproducto p {
@@ -1187,49 +1191,79 @@ body {
 }
 
 .copiar{
-    margin-top: 50px;
+    margin-top: 20px;
     gap: 10px;
     display: flex;
     justify-content: center;
 }
 
 /* CONTENEDOR GENERAL */
+
+
 .acumularproductos {
     width: 100%;
-    max-width: 1200px;
-    max-height: 800px;
-    margin: 40px auto;
+    max-width: 650px;
+    height: 300px;
+    margin: 20px auto;
     padding: 25px;
     background: #f9f9f9;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
 }
 
 /* TÍTULO */
 .acumularproductos h1 {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-size: 28px;
     font-weight: 600;
     color: #333;
 }
 
-/* CONTENEDOR DE TABLA (scroll si es muy grande) */
-.acumularproductos table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
+/* CONTENEDOR DE TABLA (solo esto scrollea) */
+.acumularproductos > div:first-of-type {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: auto;
     border-radius: 10px;
-    overflow: hidden;
+    background: white;
+}
+
+/* Scroll moderno */
+.acumularproductos > div:first-of-type::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.acumularproductos > div:first-of-type::-webkit-scrollbar-thumb {
+    background: #2c3e50;
+    border-radius: 10px;
+}
+
+.acumularproductos > div:first-of-type::-webkit-scrollbar-track {
+    background: #eaeaea;
+}
+
+/* TABLA */
+.tablaacumular {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
 }
 
 /* ENCABEZADO */
-.acumularproductos thead {
+.tablaacumular thead {
     background: #2c3e50;
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
-.acumularproductos thead th {
+.tablaacumular thead th {
     padding: 14px;
     text-align: left;
     font-size: 14px;
@@ -1237,25 +1271,29 @@ body {
 }
 
 /* FILAS */
-.acumularproductos tbody tr {
+.tablaacumular tbody tr {
     border-bottom: 1px solid #eee;
     transition: background 0.2s ease;
 }
 
-.acumularproductos tbody tr:hover {
+.tablaacumular tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.tablaacumular tbody tr:hover {
     background: #f2f6fa;
 }
 
 /* CELDAS */
-.acumularproductos tbody td {
+.tablaacumular tbody td {
     padding: 12px;
     font-size: 14px;
     color: #444;
     vertical-align: middle;
 }
 
-/* IMÁGENES DENTRO DE LA TABLA */
-.acumularproductos tbody td img {
+/* IMÁGENES */
+.tablaacumular tbody td img {
     width: 60px;
     height: 60px;
     object-fit: cover;
@@ -1263,15 +1301,13 @@ body {
     border: 1px solid #ddd;
 }
 
-/* SCROLL RESPONSIVE */
-.acumularproductos > div {
-    overflow-x: auto;
-    overflow-y: auto;
+/* BOTONES (fuera del scroll) */
+.acumularproductos .copiar {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
 }
-
-
-
-
 
 
 /* ========================================
