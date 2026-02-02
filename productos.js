@@ -107,18 +107,10 @@ const productos = [
         imagen: "https://f.fcdn.app/imgs/10c9ba/www.casagarrido.com.uy/garruy/51ea/original/catalogo/12121706_1/2000-2000/caja-con-11-divisiones-g-28x17-5x4-cm-caja-con-11-divisiones-g-28x17-5x4-cm.jpg"
     },
     {
-        nombre: "Lingas x 10Unid",
+        nombre: "Lingas",
         categoria: "🦈Pesca",
-        descripcion: "Lingas pensadas para uso en pesca, útiles y duraderas para diferentes tipos de montaje.",
+        descripcion: "Lingas pensadas para uso en pesca, útiles y duraderas para diferentes tipos de montaje. <br><br> 10 unidades por $100 <br> 60 unidades por $360",
         precio: "100",
-        codigo: "2025051317806",
-        imagen: "https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/3409d083e36547e80d9469b6f2f46579.jpg"
-    },
-    {
-        nombre: "Lingas x 60Unid",
-        categoria: "🦈Pesca",
-        descripcion: "Lingas pensadas para uso en pesca, útiles y duraderas para diferentes tipos de montaje.",
-        precio: "360",
         codigo: "2025051317806",
         imagen: "https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/3409d083e36547e80d9469b6f2f46579.jpg"
     },
@@ -226,14 +218,6 @@ const productos = [
         imagen: "https://delsurimportaciones.com.uy/wp-content/uploads/2025/03/Photoroom-20250306_154316-1152x1536-1.png"
     },
     {
-        nombre: "Reel de Pesca Pro",
-        categoria: "🦈Pesca",
-        descripcion: "Reel de pesca Pro, ideal para pescadores que buscan calidad y durabilidad en su equipo.",
-        precio: "0",
-        codigo: "CB280",
-        imagen: "https://i.siteapi.org/VpASIkfCaVYiPdY7KbJVLezyMZQ=/fit-in/330x/top/s2.siteapi.org/36c8f325338d445/img/kynwu4nks80kkg4socwg84cog8kgkg"
-    },
-    {
         nombre: "Reel RED SL 500",
         categoria: "🦈Pesca",
         descripcion: "Reel RED SL 500, compacto y eficiente para una experiencia de pesca satisfactoria.",
@@ -322,26 +306,10 @@ const productos = [
         imagen: "https://mastertools.com.uy/wp-content/uploads/2025/12/MR-67-Photoroom.jpg"
     },
     {
-        nombre: "Veneno Mata Cucarachas <br> 1 Unidad",
+        nombre: "Veneno Mata Cucarachas",
         categoria: "🏠Hogar",
-        descripcion: "Veneno especializado para eliminar cucarachas de manera efectiva y segura. <br><br> 1 unidad de $70",
+        descripcion: "Veneno especializado para eliminar cucarachas de manera efectiva y segura. <br><br> 1 unidad de $70 <br> 5 unidad de $300 <br> 10 unidad de $500",
         precio: "70",
-        codigo: "6948926230153",
-        imagen: "https://http2.mlstatic.com/D_Q_NP_797079-MLU83904199150_042025-O.webp"
-    },
-    {
-        nombre: "Veneno Mata Cucarachas <br> 5 Unidad",
-        categoria: "🏠Hogar",
-        descripcion: "Veneno especializado para eliminar cucarachas de manera efectiva y segura. <br><br> 5 unidad de $300",
-        precio: "300",
-        codigo: "6948926230153",
-        imagen: "https://http2.mlstatic.com/D_Q_NP_797079-MLU83904199150_042025-O.webp"
-    },
-    {
-        nombre: "Veneno Mata Cucarachas <br> 10 Unidad",
-        categoria: "🏠Hogar",
-        descripcion: "Veneno especializado para eliminar cucarachas de manera efectiva y segura. <br><br> 19 unidad de $500",
-        precio: "500",
         codigo: "6948926230153",
         imagen: "https://http2.mlstatic.com/D_Q_NP_797079-MLU83904199150_042025-O.webp"
     },
@@ -357,21 +325,10 @@ const productos = [
         imagen: "https://cdnx.jumpseller.com/casa-contigo/image/23279894/resize/610/610?1649453178"
     },
     {
-        nombre: "ZAPATILLA DE 4 TOMAS 220V FULL 2 X USB, 3 METROS",
+        nombre: "ZAPATILLA DE 4 TOMAS 220V FULL 2 X USB",
         categoria: "🏠Hogar",
-        descripcion: "Zapatilla eléctrica con 4 tomas de 220V y 2 puertos USB, con cable de 3 metros de longitud. Ideal para conectar múltiples dispositivos de manera segura.",
+        descripcion: "Zapatilla eléctrica con 4 tomas de 220V y 2 puertos USB, con cable de 5 metros de longitud. Ideal para conectar múltiples dispositivos de manera segura. <br><br> 3 metros x 450. <br> 5 metros x 550.",
         precio: "450",
-        codigo: "MR-54",
-        imagenes: [
-            "https://www.mink.com.ar/qloud/ryr/fotos/25801-0.jpg",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_651131-MLU91797606460_092025-T.webp"
-        ]
-    },
-    {
-        nombre: "ZAPATILLA DE 4 TOMAS 220V FULL 2 X USB, 5 METROS",
-        categoria: "🏠Hogar",
-        descripcion: "Zapatilla eléctrica con 4 tomas de 220V y 2 puertos USB, con cable de 5 metros de longitud. Ideal para conectar múltiples dispositivos de manera segura.",
-        precio: "550",
         codigo: "MR-55",
         imagenes: [
             "https://www.mink.com.ar/qloud/ryr/fotos/25801-0.jpg",
