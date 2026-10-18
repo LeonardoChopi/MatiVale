@@ -165,7 +165,7 @@ const productos = [
             "🔦Linterna"
         ],
         descripcion: "Linterna farol recargable solar, ideal para pesca y uso al aire libre.",
-        precio: "380",
+        precio: "390",
         codigo: "SH-5800T",
         imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzam43926dyNg3Cijq62pzPPr80XB6OIUDyxdQGABYAy-yionF5lkbaw9bZzc6nsy5Q4A&usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzam43926dyNg3Cijq62pzPPr80XB6OIUDyxdQGABYAy-yionF5lkbaw9bZzc6nsy5Q4A&usqp=CAU"
     },
